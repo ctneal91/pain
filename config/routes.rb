@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'perscriptions#index'
 
   #Overall Sign In path
@@ -8,6 +9,10 @@ Rails.application.routes.draw do
   get '/patient_sign_in' => 'sessions#newpatient', as: :patient_sign_in
   post '/patient_sign_in' => 'sessions#create_patient'
   delete '/patient_sign_out' => 'sessions#destroy_patient', as: :patient_sign_out
+
+  # Patient Sign Up Routes
+  get '/patient_sign_up' => 'patients#new', as: :patient_sign_up
+  post '/patient_sign_up' => 'patients#create', as: :patients
 
   #Doctor Sign In and Out Routes
   get '/doctor_sign_in' => 'sessions#newdoctor', as: :doctor_sign_in
