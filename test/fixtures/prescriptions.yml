@@ -1,0 +1,18 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  initial_amount_of_pills: 1
+  remaining_amount_of_pills: 1
+  length_of_prescription: 1
+  patient_id: 1
+  doctor_id: 1
+  drug_id: 1
+
+two:
+  initial_amount_of_pills: 1
+  remaining_amount_of_pills: 1
+  length_of_prescription: 1
+  patient_id: 1
+  doctor_id: 1
+  drug_id: 1

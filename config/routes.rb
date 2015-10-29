@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'perscriptions#index'
+  root 'prescriptions#index'
 
   #Overall Sign In path
   get '/sign_in' => 'sessions#patient_or_doctor', as: :overall_sign_in

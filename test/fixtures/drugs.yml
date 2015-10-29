@@ -1,0 +1,14 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  brand_name: MyString
+  nonpropietary_name: MyString
+  chemical_name: MyString
+  purpose: MyString
+
+two:
+  brand_name: MyString
+  nonpropietary_name: MyString
+  chemical_name: MyString
+  purpose: MyString

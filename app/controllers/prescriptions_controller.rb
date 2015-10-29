@@ -1,4 +1,4 @@
-class PerscriptionsController < ApplicationController
+class PrescriptionsController < ApplicationController
   before_action :authenticate_user!
   
   def index
