@@ -1,15 +1,23 @@
 Rails.application.routes.draw do
   root 'perscriptions#index'
 
+  #Overall Sign In path
   get '/sign_in' => 'sessions#patient_or_doctor', as: :overall_sign_in
 
+  # Patient Sign In and Out Routes
   get '/patient_sign_in' => 'sessions#newpatient', as: :patient_sign_in
   post '/patient_sign_in' => 'sessions#create_patient'
   delete '/patient_sign_out' => 'sessions#destroy_patient', as: :patient_sign_out
 
+  #Doctor Sign In and Out Routes
   get '/doctor_sign_in' => 'sessions#newdoctor', as: :doctor_sign_in
   post '/doctor_sign_in' => 'sessions#create_doctor'
   delete '/doctor_sign_out' => 'sessions#destroy_doctor', as: :doctor_sign_out
+
+  # Doctor Sign Up and edit
+  get '/doctor_sign_up' => 'doctors#new', as: :doctor_sign_up
+  post '/doctor_sign_up' => 'doctors#create', as: :doctors
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

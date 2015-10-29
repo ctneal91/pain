@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20151029185026) do
   create_table "doctors", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "speciality"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.string   "email"
+    t.string   "speciality"
   end
 
   create_table "patients", force: :cascade do |t|

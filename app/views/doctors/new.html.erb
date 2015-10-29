@@ -1,0 +1,18 @@
+<h1>Doctors#new</h1>
+<p>Find me in app/views/doctors/new.html.erb</p>
+
+<%= simple_form_for @doctor do |d| %>
+  <%= d.input :first_name, label: false, placeholder: 'First Name' %>
+
+  <%= d.input :last_name, label: false, placeholder: 'Last Name' %>
+
+  <%= d.input :speciality, label: false, placeholder: 'Speciality' %>
+
+  <%= d.input :email, label: false, placeholder: 'Email' %>
+
+  <%= d.input :password, label: false, placeholder: 'Password' %>
+
+  <%= d.input :password_confirmation, label: false, placeholder: 'Password Confirmation' %>
+
+  <%= d.submit "Sign Up" %>
+<% end %>

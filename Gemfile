@@ -49,3 +49,4 @@ end
 gem 'minitest-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'travis'
+gem 'simple_form'
