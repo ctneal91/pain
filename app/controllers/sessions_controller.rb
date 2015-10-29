@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   def create_patient
     @email = params[:email]
-    @password = params[:email]
+    @password = params[:password]
 
     patient = Patient.find_by email: @email
 
