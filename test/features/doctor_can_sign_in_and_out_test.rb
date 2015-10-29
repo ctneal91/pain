@@ -1,7 +1,7 @@
 require "test_helper"
 
-class DoctorCanSignInTest < Capybara::Rails::TestCase
-  test "Log in as doctor" do
+class DoctorCanSignInAndSignOutTest < Capybara::Rails::TestCase
+  test "Log in and log out as doctor" do
     visit root_path
     assert_content page, "Welcome to Pain Shield.  Please sign in."
 
@@ -20,5 +20,8 @@ class DoctorCanSignInTest < Capybara::Rails::TestCase
 
     assert_content "Hello, Dr. Doe"
 
+    click_link "Sign Out"
+
+    assert_content page, "Welcome to Pain Shield.  Please sign in."
   end
 end

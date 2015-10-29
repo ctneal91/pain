@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   get '/patient_sign_in' => 'sessions#newpatient', as: :patient_sign_in
   post '/patient_sign_in' => 'sessions#create_patient'
+  delete '/patient_sign_out' => 'sessions#destroy_patient', as: :patient_sign_out
 
   get '/doctor_sign_in' => 'sessions#newdoctor', as: :doctor_sign_in
   post '/doctor_sign_in' => 'sessions#create_doctor'
+  delete '/doctor_sign_out' => 'sessions#destroy_doctor', as: :doctor_sign_out
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

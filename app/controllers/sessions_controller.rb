@@ -37,4 +37,14 @@ class SessionsController < ApplicationController
       render :newdoctor
     end
   end
+
+  def destroy_patient
+    session.delete :patient_id
+    redirect_to root_path
+  end
+
+  def destroy_doctor
+    session.delete :doctor_id
+    redirect_to root_path
+  end
 end

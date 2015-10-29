@@ -2,6 +2,8 @@
 <p>Find me in app/views/perscriptions/index.html.erb</p>
 <% if @current_doctor %>
   Hello, Dr. <%= @current_doctor.last_name %>
+  <%= link_to "Sign Out", doctor_sign_out_path, method: :delete %>
 <% elsif @current_patient %>
   Hello, <%= @current_patient.first_name %>
+  <%= link_to "Sign Out", patient_sign_out_path, method: :delete %>
 <% end %>
