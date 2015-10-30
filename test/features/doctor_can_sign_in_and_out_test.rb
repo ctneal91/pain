@@ -1,6 +1,8 @@
 require "test_helper"
 
 class DoctorCanSignInAndSignOutTest < Capybara::Rails::TestCase
+
+
   test "Log in and log out as doctor" do
     visit root_path
     assert_content page, "Welcome to Pain Shield.  Please sign in."

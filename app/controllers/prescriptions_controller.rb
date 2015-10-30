@@ -10,5 +10,6 @@ class PrescriptionsController < ApplicationController
   end
 
   def show
+    @prescription = Prescription.find params[:id]
   end
 end

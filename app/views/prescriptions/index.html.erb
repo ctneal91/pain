@@ -9,5 +9,6 @@
 <% end %>
 
 <% @prescriptions.each do |prescription| %>
+  <%= link_to "#{prescription.drug.brand_name}", prescription_path(id: prescription.id)%>
   <%= prescription.initial_amount_of_pills %>
 <% end %>
