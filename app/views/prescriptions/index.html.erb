@@ -7,3 +7,7 @@
   Hello, <%= @current_patient.first_name %>
   <%= link_to "Sign Out", patient_sign_out_path, method: :delete %>
 <% end %>
+
+<% @prescriptions.each do |prescription| %>
+  <%= prescription.initial_amount_of_pills %>
+<% end %>
