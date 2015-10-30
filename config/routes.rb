@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'doses/new'
+
+  get 'doses/create'
+
   root 'prescriptions#index'
   get 'prescriptions/:id' => 'prescriptions#show', as: :prescription
   #Overall Sign In path

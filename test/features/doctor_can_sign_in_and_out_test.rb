@@ -2,16 +2,18 @@ require "test_helper"
 
 class DoctorCanSignInAndSignOutTest < Capybara::Rails::TestCase
 
-
-  test "Log in and log out as doctor" do
-    visit root_path
-    assert_content page, "Welcome to Pain Shield.  Please sign in."
-
+  setup do
     doc = Doctor.create! email: "doc@doctors.com",
                          first_name: "Jane",
                          last_name: "Doe",
                          password: "12345678",
                          speciality: "Family Medicine"
+    visit root_path
+
+  end
+
+  test "Log in and log out as doctor" do
+    assert_content page, "Welcome to Pain Shield.  Please sign in."
 
     click_link "I am a doctor"
     assert_content page, "Welcome!  Here at Pain Shield we are dedicated to helping your patients regulate their short-term and chronic pain needs."
