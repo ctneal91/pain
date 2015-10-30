@@ -8,7 +8,11 @@
   <%= link_to "Sign Out", patient_sign_out_path, method: :delete %>
 <% end %>
 
-<% @prescriptions.each do |prescription| %>
-  <%= link_to "#{prescription.drug.brand_name}", prescription_path(id: prescription.id)%>
-  <%= prescription.initial_amount_of_pills %>
-<% end %>
+<ul><h3>Your Prescriptions</h3>
+  <% @prescriptions.each do |prescription| %>
+    <li>
+      <%= link_to "#{prescription.drug.brand_name}", prescription_path(id: prescription.id)%>
+      <%= prescription.initial_amount_of_pills %>
+    </li>
+  <% end %>
+</ul>

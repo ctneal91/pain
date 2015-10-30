@@ -15,7 +15,10 @@ class AccessPrescriptionsTest < Capybara::Rails::TestCase
                          password: "12345678",
                          speciality: "Family Medicine"
 
-    zyrtec = Drug.create! brand_name: "Zyrtec"
+    zyrtec = Drug.create! brand_name: "Zyrtec",
+                          nonpropietary_name: "Cetirizine",
+                          chemical_name: "(±)-[2-[4-[(4-chlorophenyl)phenylmethyl]-1- piperazinyl]ethoxy]acetic acid",
+                          purpose: "To prevent hay fever."
 
     lipitor = Drug.create! brand_name: "Lipitor"
 
@@ -57,7 +60,7 @@ class AccessPrescriptionsTest < Capybara::Rails::TestCase
     assert_content page, "50"
   end
 
-  test "Can access individual prescriptions from the root page" do
+  test "Can access individual prescription from the root page" do
     click_link "I am a patient"
 
     fill_in "Email", with: "jd@example.com"
@@ -68,6 +71,8 @@ class AccessPrescriptionsTest < Capybara::Rails::TestCase
     assert_content page, "50"
 
     click_link "Zyrtec"
-    assert_content page, "Here is your prescription."
+
+    assert_content page, "Here is your current Zyrtec prescription."
+    
   end
 end

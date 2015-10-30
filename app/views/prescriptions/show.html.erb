@@ -1,1 +1,14 @@
-<h1> Here is your prescription. </h1>
+<h1> Here is your current <%= @prescription.drug.brand_name %> prescription. </h1>
+
+<h2><i><%= @prescription.drug.nonpropietary_name %></i></h2>
+<h3><%= @prescription.drug.chemical_name %></h3>
+<h4> Prescribing Doctor: <%= @prescription.doctor.full_name %>
+
+<div class="purpose">
+  Purpose: <%= @prescription.drug.purpose %>
+</div>
+
+<div class= "amounts">
+  Initial Amount: <%= @prescription.initial_amount_of_pills %>
+  Remaining Amount: <%= @prescription.remaining_amount_of_pills %>
+</div>

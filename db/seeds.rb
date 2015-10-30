@@ -11,3 +11,21 @@ j = Patient.create! first_name: "Bill",
                     email: "king@celebrity.com",
                     password: "12345678",
                     insurer: "Insurance"
+
+d = Doctor.create! first_name: "Jane",
+                   last_name: "Doe",
+                   speciality: "Internal Medicine",
+                   email: "jane@doe.com",
+                   password: "12345678"
+
+droga = Drug.create! brand_name: "Vicodin",
+                     nonpropietary_name: "Hydrocodone/paracetamol",
+                     chemical_name: "4,5α-epoxy-3-methoxy-17-methylmorphinan-6-one",
+                     purpose: "To relieve pain"
+
+prescription = Prescription.create! initial_amount_of_pills: 60,
+                                    remaining_amount_of_pills: 50,
+                                    length_of_prescription: 30,
+                                    patient_id: j.id,
+                                    doctor_id: d.id,
+                                    drug_id: droga.id
