@@ -10,6 +10,10 @@ class PrescriptionsController < ApplicationController
   end
 
   def show
-    @prescription = Prescription.find params[:id]
+    if @current_patient
+      @prescription = @current_patient.prescriptions.find params[:id]
+    elsif @current_doctor
+      @prescription = @current_doctor.prescriptions.find params[:id]
+    end
   end
 end

@@ -11,6 +11,12 @@ j = Patient.create! first_name: "Bill",
                     email: "king@celebrity.com",
                     password: "12345678",
                     insurer: "Insurance"
+                    
+me = Patient.create! first_name: "Christian",
+                     last_name: "Neal",
+                     email: "c.neal91@gmail.com",
+                     password: "12345678",
+                     insurer: "Insurance"
 
 d = Doctor.create! first_name: "Jane",
                    last_name: "Doe",
