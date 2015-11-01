@@ -1,2 +1,8 @@
-<h1>Doses#new</h1>
-<p>Find me in app/views/doses/new.html.erb</p>
+<h1>Please enter in your dose information here</h1>
+<%= simple_form_for @dose do |d| %>
+  <%= d.input :amount_of_pills_taken, label: false, placeholder: 'Amount of Pills Taken' %>
+
+  <%= d.input :pain_scale, label: false, placeholder: 'Pain Scale' %>
+
+  <%= d.submit "Add Dose" %>
+<% end %>

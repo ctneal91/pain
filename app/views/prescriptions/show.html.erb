@@ -9,6 +9,22 @@
 </div>
 
 <div class= "amounts">
-  Initial Amount: <%= @prescription.initial_amount_of_pills %>
-  Remaining Amount: <%= @prescription.remaining_amount_of_pills %>
+  <p>
+    Initial Amount: <%= @prescription.initial_amount_of_pills %>
+  </p>
+  <p>
+    Remaining Amount: <%= @prescription.remaining_amount_of_pills %>
+  </p>
+</div>
+
+<div class="new_dose">
+  <%= link_to 'Add New Dose', new_dose_path(prescription_id: @prescription.id) %>
+</div>
+
+<div class="past_doses">
+  <%= @doses.each do |dose| %>
+    <%= dose.amount_of_pills_taken %>
+    <%= dose.pain_scale %>
+    <% puts dose.amount_of_pills_taken %>
+  <% end %>
 </div>

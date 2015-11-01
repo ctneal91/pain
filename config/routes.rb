@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-
-  get 'doses/new'
-
-  get 'doses/create'
-
   root 'prescriptions#index'
   get 'prescriptions/:id' => 'prescriptions#show', as: :prescription
+
+  #doses
+  get 'prescriptions/:prescription_id/doses' => 'doses#index', as: :doses
+  get 'prescriptions/:prescription_id/doses/:id' => 'doses#show', as: :dose
+  get 'prescriptions/:prescription_id/add_dose' => 'doses#new', as: :new_dose
+  post 'prescriptions/:prescription_id/doses' => 'doses#create'
+
   #Overall Sign In path
   get '/sign_in' => 'sessions#patient_or_doctor', as: :overall_sign_in
 
