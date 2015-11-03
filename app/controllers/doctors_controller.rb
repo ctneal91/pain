@@ -16,6 +16,10 @@ class DoctorsController < ApplicationController
   def edit
   end
 
+  def patients
+    @patients = @current_doctor.patients
+  end
+
   def doctor_params
     params.require(:doctor).permit(:first_name, :last_name, :email, :password, :password_confirmation, :speciality)
   end

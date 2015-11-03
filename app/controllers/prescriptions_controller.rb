@@ -5,7 +5,7 @@ class PrescriptionsController < ApplicationController
     if @current_patient
       @prescriptions = Prescription.where patient_id: @current_patient.id
     elsif @current_doctor
-      @prescriptions = Prescription.where doctor_id: @current_doctor.id
+      redirect_to doctor_view_patient_path(id: @current_doctor.id)
     end
   end
 
