@@ -13,7 +13,7 @@ class AccessPrescriptionsTest < Capybara::Rails::TestCase
                          first_name: "Jane",
                          last_name: "Doe",
                          password: "12345678",
-                         speciality: "Family Medicine"
+                         specialty: "Family Medicine"
 
     zyrtec = Drug.create! brand_name: "Zyrtec",
                           nonpropietary_name: "Cetirizine",

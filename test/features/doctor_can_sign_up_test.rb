@@ -10,7 +10,7 @@ class DoctorCanSignUpTest < Capybara::Rails::TestCase
 
     fill_in "First Name", with: "Christian"
     fill_in "Last Name", with: "Neal"
-    fill_in "Speciality", with: "Family Medicine"
+    fill_in "Specialty", with: "Family Medicine"
     fill_in "Email", with: "neal@example.com"
     fill_in "Password", with: "12345678"
     fill_in "Password Confirmation", with: "12345678"

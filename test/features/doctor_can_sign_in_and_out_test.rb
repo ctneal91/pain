@@ -7,7 +7,7 @@ class DoctorCanSignInAndSignOutTest < Capybara::Rails::TestCase
                          first_name: "Jane",
                          last_name: "Doe",
                          password: "12345678",
-                         speciality: "Family Medicine"
+                         specialty: "Family Medicine"
     visit root_path
 
   end

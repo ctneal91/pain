@@ -20,7 +20,7 @@ me = Patient.create! first_name: "Christian",
 
 d = Doctor.create! first_name: "Jane",
                    last_name: "Doe",
-                   speciality: "Internal Medicine",
+                   specialty: "Internal Medicine",
                    email: "jane@doe.com",
                    password: "12345678"
 
