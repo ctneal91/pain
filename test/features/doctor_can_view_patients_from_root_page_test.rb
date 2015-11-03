@@ -65,4 +65,14 @@ class DoctorCanViewPatientsFromRootPageTest < Capybara::Rails::TestCase
     assert_content page, "1"
     assert_content page, "2"
   end
+
+  test "Doctor can click on individual patient" do
+    click_link "mkd1@rice.edu"
+    assert_content page, "Your Prescriptions for Meghan Davenport"
+  end
+
+  test "Doctor can see all prescriptions for individual patient" do
+    click_link "mkd1@rice.edu"
+    assert_content page, "Lipitor"
+  end
 end

@@ -20,6 +20,11 @@ class DoctorsController < ApplicationController
     @patients = @current_doctor.patients
   end
 
+  def patient
+    @patient = @current_doctor.patients.find params[:patient_id]
+    @prescriptions = @patient.prescriptions
+  end
+
   def doctor_params
     params.require(:doctor).permit(:first_name, :last_name, :email, :password, :password_confirmation, :speciality)
   end

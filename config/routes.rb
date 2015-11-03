@@ -30,7 +30,8 @@ Rails.application.routes.draw do
   post '/doctor_sign_up' => 'doctors#create', as: :doctors
 
   #Doctor Views patients
-  get 'doctor/:id/patients' => 'doctors#patients', as: :doctor_view_patient
+  get 'doctor/:id/patients' => 'doctors#patients', as: :doctor_view_patients
+  get 'doctor/:id/patient/:patient_id' => 'doctors#patient', as: :doctor_view_patient
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

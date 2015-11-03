@@ -34,25 +34,25 @@
 </div>
 <div class="title_bar">
   <div class="title_name">
-    <h4>Your Patients</h4>
+    <h4>Your Prescriptions for <%= @patient.full_name %></h4>
   </div>
 </div>
 <div class="page_content">
   <table class="table table-striped">
     <tr>
-      <th>Username</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Prescriptions</th>
-      <th>Last Visit</th>
+      <th>Drug Name</th>
+      <th>Doctor</th>
+      <th>Initial Amount</th>
+      <th>Pills Remaining</th>
+      <th>Prescription Length (Days)</th>
     </tr>
     <tr>
-      <%= @patients.each do |patient| %>
-          <td><%= link_to "#{patient.email}", doctor_view_patient_path(patient_id: patient.id) %></td>
-          <td><%= patient.first_name %></td>
-          <td><%= patient.last_name %></td>
-          <td><%= patient.prescriptions.count %></td>
-          <td>Date</td>
+      <% @prescriptions.each do |prescription| %>
+          <td><%= prescription.drug.brand_name %></td>
+          <td><%= prescription.doctor.full_name %></td>
+          <td><%= prescription.initial_amount_of_pills %></td>
+          <td>#?</td>
+          <td><%= prescription.length_of_prescription %></td>
       <% end %>
     </tr>
   </table>
