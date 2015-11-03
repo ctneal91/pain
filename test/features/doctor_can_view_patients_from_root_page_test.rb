@@ -25,7 +25,10 @@ class DoctorCanViewPatientsFromRootPageTest < Capybara::Rails::TestCase
                           chemical_name: "(±)-[2-[4-[(4-chlorophenyl)phenylmethyl]-1- piperazinyl]ethoxy]acetic acid",
                           purpose: "To prevent hay fever."
 
-    lipitor = Drug.create! brand_name: "Lipitor"
+    lipitor = Drug.create! brand_name: "Lipitor",
+                           nonpropietary_name: "Atorvastatin",
+                           chemical_name: "(3R,5R)-7-[2-(4-Fluorophenyl)-3-phenyl-4-(phenylcarbamoyl)-5-propan-2-ylpyrrol-1-yl]-3,5-dihydroxyheptanoic acid",
+                           purpose: "To prevent heart attacks"
 
     prescrip = Prescription.create! initial_amount_of_pills: 60,
                                     length_of_prescription: 30,
@@ -75,4 +78,14 @@ class DoctorCanViewPatientsFromRootPageTest < Capybara::Rails::TestCase
     click_link "mkd1@rice.edu"
     assert_content page, "Lipitor"
   end
+
+  test "Doctor can see individual prescriptions for patient" do
+    click_link "mkd1@rice.edu"
+    click_link "Lipitor"
+
+    assert_content page, "Your Lipitor Prescription for Meghan Davenport"
+    assert_content page, "Atorvastatin"
+  end
+
+
 end

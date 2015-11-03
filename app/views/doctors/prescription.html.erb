@@ -34,32 +34,17 @@
 </div>
 <div class="title_bar">
   <div class="title_name">
-    <h4>Your Prescriptions for <%= @patient.full_name %></h4>
+    <h4>Your <%= @prescription.drug.brand_name %> Prescription for <%= @patient.full_name %></h4>
   </div>
 </div>
 <div class="page_content">
-  <table class="table table-striped">
-    <tr>
-      <th>Drug Name</th>
-      <th>Doctor</th>
-      <th>Initial Amount</th>
-      <th>Pills Remaining</th>
-      <th>Prescription Length (Days)</th>
-    </tr>
-    <tr>
-      <% @prescriptions.each do |prescription| %>
-          <td>
-            <% if prescription.doctor_id = @current_doctor.id %>
-              <%= link_to "#{prescription.drug.brand_name}", doctor_view_prescription_path(prescription_id: prescription.id)%>
-            <% else %>
-              <%= prescription.drug.brand_name %>
-            <% end %>
-          </td>
-          <td><%= prescription.doctor.full_name %></td>
-          <td><%= prescription.initial_amount_of_pills %></td>
-          <td>#?</td>
-          <td><%= prescription.length_of_prescription %></td>
-      <% end %>
-    </tr>
-  </table>
+  <div class="drug_info">
+    <h4>Nonproprietary Name: <i><%= @prescription.drug.nonpropietary_name %></i></h4>
+    <h4>IUPAC Name: <%= @prescription.drug.chemical_name %></h4>
+    <h5>Purpose: <%= @prescription.drug.purpose %></h5>
+  </div>
+  <div class= "drug_amounts">
+    <p>Initial Amount: <%= @prescription.initial_amount_of_pills %></p>
+    <p>Remaining Amount: <%= @prescription.remaining_amount_of_pills %></p>
+  </div>
 </div>
