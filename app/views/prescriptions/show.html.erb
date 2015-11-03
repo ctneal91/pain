@@ -50,6 +50,20 @@
     <p>Initial Amount: <%= @prescription.initial_amount_of_pills %></p>
     <p>Remaining Amount: <%= @prescription.remaining_amount_of_pills %></p>
   </div>
-
-
+  <div class = "dose_table">
+    <table class="table table-striped">
+      <tr>
+        <th>Amount of Pills Taken</th>
+        <th>Pain Scale</th>
+        <th>Time Taken</th>
+      </tr>
+      <tr>
+        <% @doses.each do |dose| %>
+            <td><%= dose.amount_of_pills_taken %></td>
+            <td><%= dose.pain_scale %></td>
+            <td>Time</td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
 </div>

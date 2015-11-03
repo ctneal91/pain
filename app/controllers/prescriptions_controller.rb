@@ -15,5 +15,7 @@ class PrescriptionsController < ApplicationController
     elsif @current_doctor
       @prescription = @current_doctor.prescriptions.find params[:id]
     end
+
+    @doses = @prescription.doses
   end
 end

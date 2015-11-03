@@ -12,9 +12,13 @@ class DosesController < ApplicationController
   end
 
   def create
+    @prescription = @current_patient.prescriptions.find params[:prescription_id]
     @dose = Dose.new params.require(:dose).permit(:amount_of_pills_taken, :pain_scale)
     if @dose.save
-      redirect_to root_path
+      @prescription.doses << @dose
+        # pushes to .doses and saves to db
+        # solidifies the relationship btw the 2 model instances
+      redirect_to prescription_path(id: @prescription.id)
     else
       render :new
     end

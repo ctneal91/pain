@@ -60,6 +60,6 @@ class AccessPrescriptionsTest < Capybara::Rails::TestCase
     click_link "Zyrtec"
 
     assert_content page, "Your Zyrtec Prescription"
-
   end
+
 end

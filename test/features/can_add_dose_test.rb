@@ -48,12 +48,16 @@ class CanAddDoseTest < Capybara::Rails::TestCase
 
   test "Can Add Dose from Prescription Page" do
 
-
     click_link 'Add New Dose'
 
     assert_content page, 'Please enter in your dose information here'
 
     select '3', from: 'Amount of pills taken'
     select '5', from: 'Pain scale'
+
+    click_button "Add Dose"
+
+    assert_content page, "3"
+    assert_content page, "5"
   end
 end
