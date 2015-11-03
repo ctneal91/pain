@@ -13,10 +13,10 @@ class DoctorCanSignInAndSignOutTest < Capybara::Rails::TestCase
   end
 
   test "Log in and log out as doctor" do
-    assert_content page, "Welcome to Pain Shield.  Please sign in."
+    assert_content page, "Sign In"
 
     click_link "I am a doctor"
-    assert_content page, "Welcome!  Here at Pain Shield we are dedicated to helping your patients regulate their short-term and chronic pain needs."
+    assert_content page, "Doctor Sign In"
 
     fill_in "Email", with: "doc@doctors.com"
     fill_in "Password", with: "12345678"
@@ -26,6 +26,6 @@ class DoctorCanSignInAndSignOutTest < Capybara::Rails::TestCase
 
     click_link "Sign Out"
 
-    assert_content page, "Welcome to Pain Shield.  Please sign in."
+    assert_content page, "Sign In"
   end
 end

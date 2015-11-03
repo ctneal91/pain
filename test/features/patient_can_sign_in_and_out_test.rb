@@ -1,7 +1,7 @@
 require "test_helper"
 
 class PatientCanSignInAndOutTest < Capybara::Rails::TestCase
-  test "Can login as patient" do
+  test "Can log in and log out as patient" do
     visit root_path
     patient = Patient.create! email: 'example@example.com',
                               first_name: "Juan",
@@ -19,6 +19,6 @@ class PatientCanSignInAndOutTest < Capybara::Rails::TestCase
 
     click_link "Sign Out"
 
-    assert_content page, "Welcome to Pain Shield.  Please sign in."
+    assert_content page, "Sign In"
   end
 end

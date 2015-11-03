@@ -39,18 +39,6 @@ class AccessPrescriptionsTest < Capybara::Rails::TestCase
     visit root_path
   end
 
-  test "Doctor can view prescriptions" do
-
-    click_link "I am a doctor"
-
-    fill_in "Email", with: "doc@doctors.com"
-    fill_in "Password", with: "12345678"
-    click_button "Sign In"
-
-    assert_content page, "60"
-    assert_content page, "50"
-  end
-
   test "Patient can view prescriptions" do
     click_link "I am a patient"
 
@@ -68,9 +56,6 @@ class AccessPrescriptionsTest < Capybara::Rails::TestCase
     fill_in "Email", with: "jd@example.com"
     fill_in "Password", with: "12345678"
     click_button "Sign In"
-
-    assert_content page, "60"
-    assert_content page, "50"
 
     click_link "Zyrtec"
 
