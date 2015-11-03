@@ -1,22 +1,55 @@
-<h1> Here is your current <%= @prescription.drug.brand_name %> prescription. </h1>
-
-<h2><i><%= @prescription.drug.nonpropietary_name %></i></h2>
-<h3><%= @prescription.drug.chemical_name %></h3>
-<h4> Prescribing Doctor: <%= @prescription.doctor.full_name %>
-
-<div class="purpose">
-  Purpose: <%= @prescription.drug.purpose %>
+<div class="nav_bar">
+  <div class="my">
+    <h3>my</h3>
+  </div>
+  <div class="prescription">
+    <h3>prescription</h3>
+  </div>
+  <div class="pal">
+    <h3>pal</h3>
+  </div>
+  <div class="user_nav_bar">
+    <% if @current_doctor %>
+      <div class="greeting">
+        Hello, Dr. <%= @current_doctor.last_name %>
+      </div>
+      <div class="messages">
+        Messages
+      </div>
+      <div class="sign_out">
+        <%= link_to "Sign Out", doctor_sign_out_path, method: :delete %>
+      </div>
+    <% elsif @current_patient %>
+      <div class="greeting">
+        Hello, <%= @current_patient.full_name %>
+      </div>
+      <div class="messages">
+        Messages
+      </div>
+      <div class="sign_out">
+      <%= link_to "Sign Out", patient_sign_out_path, method: :delete %>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<div class= "amounts">
-  <p>
-    Initial Amount: <%= @prescription.initial_amount_of_pills %>
-  </p>
-  <p>
-    Remaining Amount: <%= @prescription.remaining_amount_of_pills %>
-  </p>
+<div class="title_bar">
+  <div class="title_name">
+    <h4>Your <%= @prescription.drug.brand_name %> Prescription</h4>
+  </div>
 </div>
+<div class="page_content">
+  <div class="new_dose btn btn-default">
+    <%= link_to 'Add New Dose', new_dose_path(prescription_id: @prescription.id) %>
+  </div>
+  <div class="drug_info">
+    <h4>Prescribing Doctor: <%= @prescription.doctor.full_name %></h4>
+    <h5>Purpose: <%= @prescription.drug.purpose %></h5>
+  </div>
 
-<div class="new_dose">
-  <%= link_to 'Add New Dose', new_dose_path(prescription_id: @prescription.id) %>
+  <div class= "drug_amounts">
+    <p>Initial Amount: <%= @prescription.initial_amount_of_pills %></p>
+    <p>Remaining Amount: <%= @prescription.remaining_amount_of_pills %></p>
+  </div>
+
+
 </div>
