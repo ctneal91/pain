@@ -1,2 +1,66 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+.nav_bar {
+  background-color: #FFF;
+  display: flex;
+  height: 50px;
+  margin: auto;
+  width: 1100px;
+  align-items: center;
+}
+
+.my, .prescription, .pal {
+  padding: 0px, 0px;
+  margin: 0px, 0px;
+}
+
+.my {
+  color: lighten(#1abc9c, 10%);
+}
+.greeting, a, .prescription, .messages{
+  color: #1abc9c;
+  vertical-align: middle;
+}
+
+.pal {
+  color: darken(#1abc9c, 10%);
+}
+
+.user_nav_bar {
+  display: flex;
+  text-adjust: right;
+  float: right;
+  padding-left: 650px;
+}
+
+.messages, .sign_out {
+  margin-left: 10px;
+}
+
+h4, h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.title_bar {
+  background-color: #1abc9c;
+  height: 50px;
+  display: flex;
+  align-items: center;
+   .title_name {
+    color: #EEE;
+    width: 1100px;
+    margin: auto;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    h4 {
+      margin: 0px 0px;
+    }
+  }
+}
+
+.page_content {
+  width: 1100px;
+  margin: auto;
+}

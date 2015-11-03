@@ -3,6 +3,6 @@ class Patient < ActiveRecord::Base
   has_many :prescriptions
 
   def full_name
-    patient.first_name + " " + patient.last_name
+    first_name + " " + last_name
   end
 end

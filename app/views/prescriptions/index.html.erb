@@ -1,18 +1,59 @@
-<h1>Pain Shield</h1>
-
-<% if @current_doctor %>
-  Hello, Dr. <%= @current_doctor.last_name %>
-  <%= link_to "Sign Out", doctor_sign_out_path, method: :delete %>
-<% elsif @current_patient %>
-  Hello, <%= @current_patient.first_name %>
-  <%= link_to "Sign Out", patient_sign_out_path, method: :delete %>
-<% end %>
-
-<ul><h3>Your Prescriptions</h3>
-  <% @prescriptions.each do |prescription| %>
-    <li>
-      <%= link_to "#{prescription.drug.brand_name}", prescription_path(id: prescription.id)%>
-      <%= prescription.initial_amount_of_pills %>
-    </li>
-  <% end %>
-</ul>
+<div class="nav_bar">
+  <div class="my">
+    <h3>my</h3>
+  </div>
+  <div class="prescription">
+    <h3>prescription</h3>
+  </div>
+  <div class="pal">
+    <h3>pal</h3>
+  </div>
+  <div class="user_nav_bar">
+    <% if @current_doctor %>
+      <div class="greeting">
+        Hello, Dr. <%= @current_doctor.last_name %>
+      </div>
+      <div class="messages">
+        Messages
+      </div>
+      <div class="sign_out">
+        <%= link_to "Sign Out", doctor_sign_out_path, method: :delete %>
+      </div>
+    <% elsif @current_patient %>
+      <div class="greeting">
+        Hello, <%= @current_patient.full_name %>
+      </div>
+      <div class="messages">
+        Messages
+      </div>
+      <div class="sign_out">
+      <%= link_to "Sign Out", patient_sign_out_path, method: :delete %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="title_bar">
+  <div class="title_name">
+    <h4>Your Prescriptions</h4>
+  </div>
+</div>
+<div class="page_content">
+  <table class="table table-striped">
+    <tr>
+      <th>Drug Name</th>
+      <th>Doctor</th>
+      <th>Initial Amount</th>
+      <th>Pills Remaining</th>
+      <th>Prescription Length (Days)</th>
+    </tr>
+    <tr>
+      <% @prescriptions.each do |prescription| %>
+          <td><%= link_to "#{prescription.drug.brand_name}", prescription_path(id: prescription.id)%></td>
+          <td><%= prescription.doctor.full_name %></td>
+          <td><%= prescription.initial_amount_of_pills %></td>
+          <td>#?</td>
+          <td><%= prescription.length_of_prescription %></td>
+      <% end %>
+    </tr>
+  </table>
+</div>
