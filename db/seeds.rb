@@ -11,7 +11,7 @@ j = Patient.create! first_name: "Bill",
                     email: "king@celebrity.com",
                     password: "12345678",
                     insurer: "Insurance"
-                    
+
 me = Patient.create! first_name: "Christian",
                      last_name: "Neal",
                      email: "c.neal91@gmail.com",
@@ -32,6 +32,7 @@ droga = Drug.create! brand_name: "Vicodin",
 prescription = Prescription.create! initial_amount_of_pills: 60,
                                     remaining_amount_of_pills: 50,
                                     length_of_prescription: 30,
+                                    max_dose_amount: 4,
                                     patient_id: j.id,
                                     doctor_id: d.id,
                                     drug_id: droga.id

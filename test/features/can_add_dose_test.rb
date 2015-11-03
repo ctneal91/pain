@@ -23,12 +23,14 @@ class CanAddDoseTest < Capybara::Rails::TestCase
 
     prescrip = Prescription.create! initial_amount_of_pills: 60,
                                     length_of_prescription: 30,
+                                    max_dose_amount: 5,
                                     doctor_id: doc.id,
                                     patient_id: pat.id,
                                     drug_id: zyrtec.id
 
     prescrip2 = Prescription.create! initial_amount_of_pills: 50,
                                      length_of_prescription: 30,
+                                     max_dose_amount: 4,
                                      doctor_id: doc.id,
                                      patient_id: pat.id,
                                      drug_id: lipitor.id
@@ -51,7 +53,7 @@ class CanAddDoseTest < Capybara::Rails::TestCase
 
     assert_content page, 'Please enter in your dose information here'
 
-    fill_in 'Amount of Pills Taken', with: 3
-    fill_in 'Pain Scale', with: 4
+    select '3', from: 'Amount of pills taken'
+    select '5', from: 'Pain scale'
   end
 end

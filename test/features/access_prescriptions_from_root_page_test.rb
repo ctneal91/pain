@@ -24,12 +24,14 @@ class AccessPrescriptionsTest < Capybara::Rails::TestCase
 
     prescrip = Prescription.create! initial_amount_of_pills: 60,
                                     length_of_prescription: 30,
+                                    max_dose_amount: 5,
                                     doctor_id: doc.id,
                                     patient_id: pat.id,
                                     drug_id: zyrtec.id
 
     prescrip2 = Prescription.create! initial_amount_of_pills: 50,
                                      length_of_prescription: 30,
+                                     max_dose_amount: 5,
                                      doctor_id: doc.id,
                                      patient_id: pat.id,
                                      drug_id: lipitor.id
@@ -72,7 +74,7 @@ class AccessPrescriptionsTest < Capybara::Rails::TestCase
 
     click_link "Zyrtec"
 
-    assert_content page, "Here is your current Zyrtec prescription."
-    
+    assert_content page, "Your Zyrtec Prescription"
+
   end
 end

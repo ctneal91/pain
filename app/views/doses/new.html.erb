@@ -1,8 +1,53 @@
-<h1>Please enter in your dose information here</h1>
-<%= simple_form_for @dose do |d| %>
-  <%= d.input :amount_of_pills_taken, label: false, placeholder: 'Amount of Pills Taken' %>
+<div class="nav_bar">
+  <div class="my">
+    <h3>my</h3>
+  </div>
+  <div class="prescription">
+    <h3>prescription</h3>
+  </div>
+  <div class="pal">
+    <h3>pal</h3>
+  </div>
+  <div class="user_nav_bar">
+    <% if @current_doctor %>
+      <div class="greeting">
+        Hello, Dr. <%= @current_doctor.last_name %>
+      </div>
+      <div class="messages">
+        Messages
+      </div>
+      <div class="sign_out">
+        <%= link_to "Sign Out", doctor_sign_out_path, method: :delete %>
+      </div>
+    <% elsif @current_patient %>
+      <div class="greeting">
+        Hello, <%= @current_patient.full_name %>
+      </div>
+      <div class="messages">
+        Messages
+      </div>
+      <div class="sign_out">
+      <%= link_to "Sign Out", patient_sign_out_path, method: :delete %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="title_bar">
+  <div class="title_name">
+    <h4>New Dose for Your <%= @prescription.drug.brand_name %> Prescription</h4>
+  </div>
+</div>
+<div class="page_content">
+  <div class="dose_greeting">
+    <h4>Please enter in your dose information here</h4>
+  </div>
+  <div class="dose_form">
+    <%= simple_form_for @dose do |d| %>
+      <%= d.input :amount_of_pills_taken, collection: 1..@prescription.max_dose_amount %>
 
-  <%= d.input :pain_scale, label: false, placeholder: 'Pain Scale' %>
+      <%= d.input :pain_scale, collection: 1..10 %>
 
-  <%= d.submit "Add Dose" %>
-<% end %>
+      <%= d.submit "Add Dose" %>
+    <% end %>
+  </div>
+</div>

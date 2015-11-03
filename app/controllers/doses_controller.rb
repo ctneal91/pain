@@ -2,6 +2,12 @@ class DosesController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    if @current_patient
+      @prescription = @current_patient.prescriptions.find params[:prescription_id]
+    elsif @current_doctor
+      @prescription = @current_doctor.prescriptions.find params[:prescription_id]
+    end
+
     @dose = Dose.new
   end
 

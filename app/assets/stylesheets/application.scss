@@ -65,10 +65,14 @@ h4, h3 {
   margin: auto;
 }
 
-.new_dose {
+.new_dose, .dose_greeting {
   margin: 5px 0px;
 }
 
 .drug_amounts p {
   margin: 5px 0px;
+}
+
+.dose_form {
+  width: 200px;
 }
