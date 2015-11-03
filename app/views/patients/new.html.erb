@@ -1,17 +1,36 @@
-<h1>Patients#new</h1>
-<p>Find me in app/views/patients/new.html.erb</p>
-<%= simple_form_for @patient do |d| %>
-  <%= d.input :first_name, label: false, placeholder: 'First Name' %>
+<div class="nav_bar">
+  <div class="my">
+    <h3>my</h3>
+  </div>
+  <div class="prescription">
+    <h3>prescription</h3>
+  </div>
+  <div class="pal">
+    <h3>pal</h3>
+  </div>
+</div>
+<div class="title_bar">
+  <div class="title_name">
+    <h4>Patient Sign Up</h4>
+  </div>
+</div>
 
-  <%= d.input :last_name, label: false, placeholder: 'Last Name' %>
+<div class="page_content">
+  <div class="sign_up_form">
+    <%= simple_form_for @patient do |d| %>
+      <%= d.input :first_name, label: false, placeholder: 'First Name' %>
 
-  <%= d.input :insurer, label: false, placeholder: 'Insurer' %>
+      <%= d.input :last_name, label: false, placeholder: 'Last Name' %>
 
-  <%= d.input :email, label: false, placeholder: 'Email' %>
+      <%= d.input :insurer, label: false, placeholder: 'Insurer' %>
 
-  <%= d.input :password, label: false, placeholder: 'Password' %>
+      <%= d.input :email, label: false, placeholder: 'Email' %>
 
-  <%= d.input :password_confirmation, label: false, placeholder: 'Password Confirmation' %>
+      <%= d.input :password, label: false, placeholder: 'Password' %>
 
-  <%= d.submit "Sign Up" %>
-<% end %>
+      <%= d.input :password_confirmation, label: false, placeholder: 'Password Confirmation' %>
+
+      <%= d.submit "Sign Up" %>
+    <% end %>
+  </div>
+</div>

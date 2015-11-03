@@ -1,20 +1,40 @@
-<h1>Welcome!  Here at Pain Shield we are dedicated to helping your patients regulate their short-term and chronic pain needs.</h1>
-
-<h5>If you don't have an account, you can <%= link_to 'create an account', doctor_sign_up_path %>.</h5>
-<%= form_tag do %>
-
-  <div class="sign_in_form">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+<div class="nav_bar">
+  <div class="my">
+    <h3>my</h3>
   </div>
-
-  <div class="sign_in_form">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+  <div class="prescription">
+    <h3>prescription</h3>
   </div>
-
-  <div class="sign_in_form">
-    <%= submit_tag "Sign In" %>
+  <div class="pal">
+    <h3>pal</h3>
   </div>
+</div>
+<div class="title_bar">
+  <div class="title_name">
+    <h4>Doctor Sign In</h4>
+  </div>
+</div>
 
-<% end %>
+<div class="page_content">
+  <div class="sign_in_greeting">
+    <h4>We are dedicated we are dedicated to helping your patients regulate their short-term and chronic pain needs.</h4>
+  </div>
+  <h5>If you don't have an account, you can <%= link_to 'create an account', doctor_sign_up_path %>.</h5>
+  <%= form_tag do %>
+
+    <div class="sign_in_form">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+    </div>
+
+    <div class="sign_in_form">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+
+    <div class="sign_in_form">
+      <%= submit_tag "Sign In" %>
+    </div>
+
+  <% end %>
+</div>

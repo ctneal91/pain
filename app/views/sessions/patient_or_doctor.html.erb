@@ -1,6 +1,28 @@
-<h1>Welcome to Pain Shield.  Please sign in.</h1>
-<p>Find me in app/views/sessions/patient_or_doctor.html.erb</p>
+<div class="nav_bar">
+  <div class="my">
+    <h3>my</h3>
+  </div>
+  <div class="prescription">
+    <h3>prescription</h3>
+  </div>
+  <div class="pal">
+    <h3>pal</h3>
+  </div>
+</div>
+<div class="title_bar">
+  <div class="title_name">
+    <h4>Sign In</h4>
+  </div>
+</div>
 
+<div class="page_content">
+  <div class="choices">
+    <div class="choice btn btn-default">
+        <%= link_to 'I am a patient', patient_sign_in_path %>
+    </div>
+    <div class="choice btn btn-default">
+        <%= link_to 'I am a doctor', doctor_sign_in_path %>
+    </div>
+  </div>
 
-<%= link_to 'I am a patient', patient_sign_in_path %>
-<%= link_to 'I am a doctor', doctor_sign_in_path %>
+</div>
