@@ -38,6 +38,9 @@
   </div>
 </div>
 <div class="page_content">
+  <div class="new_prescription btn btn-default">
+    <%= link_to 'Add New Prescription', new_prescription_path(patient_id: @patient.id) %>
+  </div>
   <table class="table table-striped">
     <tr>
       <th>Drug Name</th>
