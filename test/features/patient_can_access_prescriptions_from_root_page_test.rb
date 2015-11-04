@@ -1,12 +1,13 @@
 require "test_helper"
 
-class CanAddDoseTest < Capybara::Rails::TestCase
+class PatientCanAccessPrescriptionsTest < Capybara::Rails::TestCase
+
   setup do
     pat = Patient.create! email: "jd@example.com",
-                          first_name: "Jane",
-                          last_name: "Doe",
-                          password: "12345678",
-                          insurer: "Humana"
+                              first_name: "Jane",
+                              last_name: "Doe",
+                              password: "12345678",
+                              insurer: "Humana"
 
     doc = Doctor.create! email: "doc@doctors.com",
                          first_name: "Jane",
@@ -26,7 +27,7 @@ class CanAddDoseTest < Capybara::Rails::TestCase
 
     prescrip2 = Prescription.create! initial_amount_of_pills: 50,
                                      length_of_prescription: 30,
-                                     max_dose_amount: 4,
+                                     max_dose_amount: 5,
                                      doctor_id: doc.id,
                                      patient_id: pat.id,
                                      drug_name: "Lipitor",
@@ -35,39 +36,29 @@ class CanAddDoseTest < Capybara::Rails::TestCase
                                      doses_per_day: 2
 
     visit root_path
+  end
 
+  test "Patient can view prescriptions" do
     click_link "I am a patient"
 
     fill_in "Email", with: "jd@example.com"
     fill_in "Password", with: "12345678"
     click_button "Sign In"
 
-    click_link 'Zyrtec'
+    assert_content page, "60"
+    assert_content page, "50"
   end
 
-  test "Can Add Dose from Prescription Page" do
+  test "Patient can access individual prescription from the root page" do
+    click_link "I am a patient"
 
-    click_link 'Add New Dose'
+    fill_in "Email", with: "jd@example.com"
+    fill_in "Password", with: "12345678"
+    click_button "Sign In"
 
-    assert_content page, 'Please enter in your dose information here'
+    click_link "Zyrtec"
 
-    select '3', from: 'Amount of pills taken'
-    select '5', from: 'Pain scale'
-
-    click_button "Add Dose"
-
-    assert_content page, "3"
-    assert_content page, "5"
+    assert_content page, "Your Zyrtec Prescription"
   end
 
-  test "Patient 'Add Dose' changes remaining amount of pills" do
-    click_link 'Add New Dose'
-
-    select '3', from: 'Amount of pills taken'
-    select '5', from: 'Pain scale'
-
-    click_button "Add Dose"
-
-    assert_content page, "Remaining Amount: 57"
-  end
 end
