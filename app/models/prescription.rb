@@ -5,6 +5,7 @@ class Prescription < ActiveRecord::Base
   has_many :doses
 
   def remaining_amount_of_pills
-    initial_amount_of_pills
+    total_taken = doses.map{|dose| dose.amount_of_pills_taken}.sum
+    initial_amount_of_pills - total_taken
   end
 end

@@ -60,4 +60,15 @@ class CanAddDoseTest < Capybara::Rails::TestCase
     assert_content page, "3"
     assert_content page, "5"
   end
+
+  test "Patient 'Add Dose' changes remaining amount of pills" do
+    click_link 'Add New Dose'
+
+    select '3', from: 'Amount of pills taken'
+    select '5', from: 'Pain scale'
+
+    click_button "Add Dose"
+
+    assert_content page, "Remaining Amount: 57"
+  end
 end
