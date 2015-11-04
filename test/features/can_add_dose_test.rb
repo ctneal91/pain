@@ -3,10 +3,10 @@ require "test_helper"
 class CanAddDoseTest < Capybara::Rails::TestCase
   setup do
     pat = Patient.create! email: "jd@example.com",
-                              first_name: "Jane",
-                              last_name: "Doe",
-                              password: "12345678",
-                              insurer: "Humana"
+                          first_name: "Jane",
+                          last_name: "Doe",
+                          password: "12345678",
+                          insurer: "Humana"
 
     doc = Doctor.create! email: "doc@doctors.com",
                          first_name: "Jane",
@@ -14,26 +14,25 @@ class CanAddDoseTest < Capybara::Rails::TestCase
                          password: "12345678",
                          specialty: "Family Medicine"
 
-    zyrtec = Drug.create! brand_name: "Zyrtec",
-                          nonpropietary_name: "Cetirizine",
-                          chemical_name: "(±)-[2-[4-[(4-chlorophenyl)phenylmethyl]-1- piperazinyl]ethoxy]acetic acid",
-                          purpose: "To prevent hay fever."
-
-    lipitor = Drug.create! brand_name: "Lipitor"
-
     prescrip = Prescription.create! initial_amount_of_pills: 60,
                                     length_of_prescription: 30,
                                     max_dose_amount: 5,
                                     doctor_id: doc.id,
                                     patient_id: pat.id,
-                                    drug_id: zyrtec.id
+                                    drug_name: "Zyrtec",
+                                    purpose: "To prevent hay fever",
+                                    instructions: "Take right before bed",
+                                    doses_per_day: 1
 
     prescrip2 = Prescription.create! initial_amount_of_pills: 50,
                                      length_of_prescription: 30,
                                      max_dose_amount: 4,
                                      doctor_id: doc.id,
                                      patient_id: pat.id,
-                                     drug_id: lipitor.id
+                                     drug_name: "Lipitor",
+                                     purpose: "To prevent heart attacks and stroke",
+                                     instructions: "Take right after eating breakfast and dinner",
+                                     doses_per_day: 2
 
     visit root_path
 

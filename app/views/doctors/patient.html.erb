@@ -50,9 +50,7 @@
       <% @prescriptions.each do |prescription| %>
           <td>
             <% if prescription.doctor_id = @current_doctor.id %>
-              <%= link_to "#{prescription.drug.brand_name}", doctor_view_prescription_path(prescription_id: prescription.id)%>
-            <% else %>
-              <%= prescription.drug.brand_name %>
+              <%= link_to "#{prescription.drug_name}", doctor_view_prescription_path(prescription_id: prescription.id)%>
             <% end %>
           </td>
           <td><%= prescription.doctor.full_name %></td>

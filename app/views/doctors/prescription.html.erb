@@ -34,14 +34,12 @@
 </div>
 <div class="title_bar">
   <div class="title_name">
-    <h4>Your <%= @prescription.drug.brand_name %> Prescription for <%= @patient.full_name %></h4>
+    <h4>Your <%= @prescription.drug_name %> Prescription for <%= @patient.full_name %></h4>
   </div>
 </div>
 <div class="page_content">
   <div class="drug_info">
-    <h4>Nonproprietary Name: <i><%= @prescription.drug.nonpropietary_name %></i></h4>
-    <h4>IUPAC Name: <%= @prescription.drug.chemical_name %></h4>
-    <h5>Purpose: <%= @prescription.drug.purpose %></h5>
+    <h5>Purpose: <%= @prescription.purpose %></h5>
   </div>
   <div class= "drug_amounts">
     <p>Initial Amount: <%= @prescription.initial_amount_of_pills %></p>

@@ -34,7 +34,7 @@
 </div>
 <div class="title_bar">
   <div class="title_name">
-    <h4>Your <%= @prescription.drug.brand_name %> Prescription</h4>
+    <h4>Your <%= @prescription.drug_name %> Prescription</h4>
   </div>
 </div>
 <div class="page_content">
@@ -43,7 +43,7 @@
   </div>
   <div class="drug_info">
     <h4>Prescribing Doctor: <%= @prescription.doctor.full_name %></h4>
-    <h5>Purpose: <%= @prescription.drug.purpose %></h5>
+    <h5>Purpose: <%= @prescription.purpose %></h5>
   </div>
 
   <div class= "drug_amounts">

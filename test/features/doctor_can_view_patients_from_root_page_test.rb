@@ -20,36 +20,35 @@ class DoctorCanViewPatientsFromRootPageTest < Capybara::Rails::TestCase
                          password: "12345678",
                          specialty: "Family Medicine"
 
-    zyrtec = Drug.create! brand_name: "Zyrtec",
-                          nonpropietary_name: "Cetirizine",
-                          chemical_name: "(±)-[2-[4-[(4-chlorophenyl)phenylmethyl]-1- piperazinyl]ethoxy]acetic acid",
-                          purpose: "To prevent hay fever."
-
-    lipitor = Drug.create! brand_name: "Lipitor",
-                           nonpropietary_name: "Atorvastatin",
-                           chemical_name: "(3R,5R)-7-[2-(4-Fluorophenyl)-3-phenyl-4-(phenylcarbamoyl)-5-propan-2-ylpyrrol-1-yl]-3,5-dihydroxyheptanoic acid",
-                           purpose: "To prevent heart attacks"
-
     prescrip = Prescription.create! initial_amount_of_pills: 60,
                                     length_of_prescription: 30,
                                     max_dose_amount: 5,
                                     doctor_id: doc.id,
                                     patient_id: pat.id,
-                                    drug_id: zyrtec.id
+                                    drug_name: "Zyrtec",
+                                    purpose: "To prevent hay fever",
+                                    instructions: "Take right before bed",
+                                    doses_per_day: 1
 
     prescrip2 = Prescription.create! initial_amount_of_pills: 50,
                                      length_of_prescription: 30,
                                      max_dose_amount: 4,
                                      doctor_id: doc.id,
                                      patient_id: pat.id,
-                                     drug_id: lipitor.id
+                                     drug_name: "Lipitor",
+                                     purpose: "To prevent heart attacks and stroke",
+                                     instructions: "Take right after eating breakfast and dinner",
+                                     doses_per_day: 2
 
     prescrip3 = Prescription.create! initial_amount_of_pills: 50,
                                      length_of_prescription: 30,
                                      max_dose_amount: 4,
                                      doctor_id: doc.id,
                                      patient_id: meg.id,
-                                     drug_id: lipitor.id
+                                     drug_name: "Lipitor",
+                                     purpose: "To prevent heart attacks and stroke",
+                                     instructions: "Take right after eating breakfast and dinner",
+                                     doses_per_day: 2
     visit root_path
 
     click_link "I am a doctor"
@@ -84,7 +83,6 @@ class DoctorCanViewPatientsFromRootPageTest < Capybara::Rails::TestCase
     click_link "Lipitor"
 
     assert_content page, "Your Lipitor Prescription for Meghan Davenport"
-    assert_content page, "Atorvastatin"
   end
 
 

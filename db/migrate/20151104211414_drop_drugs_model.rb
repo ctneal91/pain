@@ -1,6 +1,10 @@
-class CreateDrugs < ActiveRecord::Migration
-  def change
-    create_table :drugs do |t|
+class DropDrugsModel < ActiveRecord::Migration
+  def up
+    drop_table :drugs
+  end
+
+  def down
+    create_table :doses do |t|
       t.string :brand_name
       t.string :nonpropietary_name
       t.string :chemical_name
