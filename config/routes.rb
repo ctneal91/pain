@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'visits/new'
+
   root 'prescriptions#index'
   get 'prescriptions/:id' => 'prescriptions#show', as: :prescription
 
@@ -33,7 +35,8 @@ Rails.application.routes.draw do
   get 'doctor/:id/patients' => 'doctors#patients', as: :doctor_view_patients
   get 'doctor/:id/patient/:patient_id' => 'doctors#patient', as: :doctor_view_patient
   get 'doctor/:id/patient/:patient_id/prescription/:prescription_id'=> 'doctors#prescription', as: :doctor_view_prescription
-
+  get 'doctor/:id/patient/:patient_id/new_prescription' => 'prescription#new', as: :new_prescription
+  post 'doctor/:id/patient/:patient_id/prescription' => 'prescriptions#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
