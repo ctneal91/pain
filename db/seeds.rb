@@ -30,7 +30,6 @@ droga = Drug.create! brand_name: "Vicodin",
                      purpose: "To relieve pain"
 
 prescription = Prescription.create! initial_amount_of_pills: 60,
-                                    remaining_amount_of_pills: 50,
                                     length_of_prescription: 30,
                                     max_dose_amount: 4,
                                     patient_id: j.id,
