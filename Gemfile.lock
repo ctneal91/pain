@@ -64,6 +64,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    color (1.8)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     ethon (0.8.0)
@@ -73,6 +74,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.10.0)
       faraday (>= 0.7.4, < 0.10)
+    fastercsv (1.5.5)
     ffi (1.9.10)
     gh (0.14.0)
       addressable
@@ -123,6 +125,9 @@ GEM
     net-http-pipeline (1.0.1)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    pdf-writer (1.1.8)
+      color (>= 1.4.0)
+      transaction-simple (~> 1.3)
     pg (0.18.3)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -160,6 +165,12 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    reportable (1.4.2)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0.0)
+    ruport (1.6.3)
+      fastercsv
+      pdf-writer (= 1.1.8)
     sass (3.4.19)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -184,6 +195,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
+    transaction-simple (1.4.0.2)
     travis (1.8.0)
       addressable (~> 2.3)
       backports
@@ -227,6 +239,8 @@ DEPENDENCIES
   minitest-rails-capybara
   pg
   rails (= 4.2.4)
+  reportable
+  ruport
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form

@@ -38,7 +38,7 @@
   </div>
 </div>
 <div class="page_content">
-  <table class="table table-striped">
+  <table class="prescriptions_table table table-striped">
     <tr>
       <th>Drug Name</th>
       <th>Doctor</th>
@@ -46,14 +46,14 @@
       <th>Pills Remaining</th>
       <th>Prescription Length (Days)</th>
     </tr>
-    <tr>
-      <% @prescriptions.each do |prescription| %>
-          <td><%= link_to "#{prescription.drug_name}", prescription_path(id: prescription.id)%></td>
-          <td><%= prescription.doctor.full_name %></td>
-          <td><%= prescription.initial_amount_of_pills %></td>
-          <td>#?</td>
-          <td><%= prescription.length_of_prescription %></td>
-      <% end %>
-    </tr>
+    <% @prescriptions.each do |prescription| %>
+      </tr>
+        <td><%= link_to "#{prescription.drug_name}", prescription_path(id: prescription.id)%></td>
+        <td><%= prescription.doctor.full_name %></td>
+        <td><%= prescription.initial_amount_of_pills %></td>
+        <td><%= prescription.remaining_amount_of_pills %></td>
+        <td><%= prescription.length_of_prescription %></td>
+      </tr>
+    <% end %>
   </table>
 </div>

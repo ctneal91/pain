@@ -46,14 +46,14 @@
       <th>Prescriptions</th>
       <th>Last Visit</th>
     </tr>
-    <tr>
-      <%= @patients.each do |patient| %>
-          <td><%= link_to "#{patient.email}", doctor_view_patient_path(patient_id: patient.id) %></td>
-          <td><%= patient.first_name %></td>
-          <td><%= patient.last_name %></td>
-          <td><%= patient.prescriptions.count %></td>
-          <td>Date</td>
-      <% end %>
-    </tr>
+    <%= @patients.each do |patient| %>
+      <tr>
+        <td><%= link_to "#{patient.email}", doctor_view_patient_path(patient_id: patient.id) %></td>
+        <td><%= patient.first_name %></td>
+        <td><%= patient.last_name %></td>
+        <td><%= patient.prescriptions.count %></td>
+        <td>Date</td>
+      </tr>
+    <% end %>
   </table>
 </div>

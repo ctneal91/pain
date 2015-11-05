@@ -41,26 +41,24 @@
   <div class="new_prescription btn btn-default">
     <%= link_to 'Add New Prescription', new_prescription_path(patient_id: @patient.id) %>
   </div>
-  <table class="table table-striped">
+  <table class="patients_table table table-striped">
     <tr>
       <th>Drug Name</th>
-      <th>Doctor</th>
       <th>Initial Amount</th>
       <th>Pills Remaining</th>
       <th>Prescription Length (Days)</th>
     </tr>
-    <tr>
-      <% @prescriptions.each do |prescription| %>
-          <td>
-            <% if prescription.doctor_id = @current_doctor.id %>
-              <%= link_to "#{prescription.drug_name}", doctor_view_prescription_path(prescription_id: prescription.id)%>
-            <% end %>
-          </td>
-          <td><%= prescription.doctor.full_name %></td>
-          <td><%= prescription.initial_amount_of_pills %></td>
-          <td><%= prescription.remaining_amount_of_pills %></td>
-          <td><%= prescription.length_of_prescription %></td>
-      <% end %>
-    </tr>
+    <% @prescriptions.each do |prescription| %>
+      <tr>
+        <td>
+          <% if prescription.doctor_id = @current_doctor.id %>
+            <%= link_to "#{prescription.drug_name}", doctor_view_prescription_path(prescription_id: prescription.id)%>
+          <% end %>
+        </td>
+        <td><%= prescription.initial_amount_of_pills %></td>
+        <td><%= prescription.remaining_amount_of_pills %></td>
+        <td><%= prescription.length_of_prescription %></td>
+      </tr>
+    <% end %>
   </table>
 </div>

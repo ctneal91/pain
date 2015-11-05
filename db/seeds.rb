@@ -25,11 +25,11 @@ d = Doctor.create! first_name: "Jane",
                    password: "12345678"
 
 prescrip1 = Prescription.create! initial_amount_of_pills: 60,
-                                    length_of_prescription: 30,
-                                    max_dose_amount: 4,
-                                    patient_id: j.id,
-                                    doctor_id: d.id,
-                                    drug_name: "Vicodin",
-                                    purpose: "To relieve pain",
-                                    doses_per_day: 4,
-                                    instructions: "Take as needed for excruciating pain."
+                                 length_of_prescription: 30,
+                                 max_dose_amount: 4,
+                                 patient_id: j.id,
+                                 doctor_id: d.id,
+                                 drug_name: "Vicodin",
+                                 purpose: "To relieve pain",
+                                 doses_per_day: 4,
+                                 instructions: "Take as needed for excruciating pain."
