@@ -31,21 +31,21 @@ class DoctorsController < ApplicationController
     @prescription = @patient.prescriptions.find params[:prescription_id]
   end
 
-  def new_prescription
-    @patient = @current_doctor.patients.find params[:patient_id]
-    @prescription = Prescription.new
-  end
-
-  def create_prescription
-    @patient = @current_doctor.patients.find params[:patient_id]
-    @prescription = Prescription.new(prescription_params)
-    if @prescription.save
-      @patient.prescriptions << @prescription
-      @current_doctor.prescriptions << @prescription
-      redirect_to doctor_view_patient_path(id: @current_doctor.id, patient_id: @patient.id)
-    else
-      render :new_prescription
-    end
+  # def new_prescription
+  #   @patient = @current_doctor.patients.find params[:patient_id]
+  #   @prescription = Prescription.new
+  # end
+  #
+  # def create_prescription
+  #   @patient = @current_doctor.patients.find params[:patient_id]
+  #   @prescription = Prescription.new(prescription_params)
+  #   if @prescription.save
+  #     @patient.prescriptions << @prescription
+  #     @current_doctor.prescriptions << @prescription
+  #     redirect_to doctor_view_patient_path(id: @current_doctor.id, patient_id: @patient.id)
+  #   else
+  #     render :new_prescription
+  #   end
   end
 
   def doctor_params
