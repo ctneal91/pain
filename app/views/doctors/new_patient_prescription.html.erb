@@ -34,20 +34,30 @@
 </div>
 <div class="title_bar">
   <div class="title_name">
-    <h4>Patients Index</h4>
+    <h4>Add New Prescription for <%= @patient.full_name %></h4>
   </div>
 </div>
 <div class="page_content">
-  <table class="patients_table table table-striped">
-    <tr>
-      <th>Username</th>
-      <th>Full Name</th>
-    </tr>
-    <% @patients.each do |patient| %>
-      <tr>
-        <td><%= link_to "#{patient.email}", new_patient_prescription_path(id: @current_doctor.id, patient_id: patient.id) %></td>
-        <td><%= patient.full_name %></td>
-      </tr>
+  <div class="prescription_greeting">
+    <h4>Please enter in your prescription information here</h4>
+  </div>
+  <div class="prescription_form">
+    <%= simple_form_for @prescription do |f| %>
+      <%= f.input :drug_name, label: "Drug Name" %>
+
+      <%= f.input :purpose, label: "Purpose" %>
+
+      <%= f.input :instructions, label: "Instructions" %>
+
+      <%= f.input :doses_per_day, label: "Doses Per Day" %>
+
+      <%= f.input :max_dose_amount, label: "Max Dose Amount" %>
+
+      <%= f.input :initial_amount_of_pills, label: "Amount of Pills" %>
+
+      <%= f.input :length_of_prescription, label: "Length of Prescription (Days)" %>
+
+      <%= f.submit "Create New Prescription" %>
     <% end %>
-  </table>
+  </div>
 </div>

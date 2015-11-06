@@ -50,12 +50,23 @@ class DoctorCanAddNewPatientTest < Capybara::Rails::TestCase
     assert_content page, "Christian Neal"
     assert_content page, "Meghan Davenport"
   end
-  # 
-  # test "Doctor can click link to see new patient" do
-  #   click_link "Add New Patient"
-  #
-  #   click_link "c.neal91@gmail.com"
-  #
-  #   click_link "Add New Prescription for Christian Neal"
-  # end
+
+  test "Doctor can click link to see new patient" do
+    click_link "Add New Patient"
+
+    click_link "c.neal91@gmail.com"
+
+    fill_in "Drug Name", with: "Vicodin"
+    fill_in "Purpose", with: "To relieve pain"
+    fill_in "Instructions", with: "Take 2 pills as necessary for pain"
+    fill_in "Doses Per Day", with: 4
+    fill_in "Max Dose Amount", with: 3
+    fill_in "Amount of Pills", with: 150
+    fill_in "Length of Prescription (Days)", with: 30
+    click_button "Create New Prescription"
+
+    assert_content page, "Christian Neal"
+    assert_content page, "Vicodin"
+
+  end
 end

@@ -37,7 +37,7 @@ class DoctorsController < ApplicationController
   end
 
   def create_prescription
-    @patient = @current_doctor.patients.find params[:patient_id]
+    @patient = Patient.find params[:patient_id]
     @prescription = Prescription.new(prescription_params)
     if @prescription.save
       @patient.prescriptions << @prescription
@@ -58,5 +58,22 @@ class DoctorsController < ApplicationController
 
   def all_patients
     @patients = Patient.all
+  end
+
+  def new_patient_prescription
+    @patient = Patient.find params[:patient_id]
+    @prescription = Prescription.new
+  end
+
+  def create_patient_prescription
+    @patient = Patient.find params[:patient_id]
+    @prescription = Prescription.new(prescription_params)
+    if @prescription.save
+      @patient.prescriptions << @prescription
+      @current_doctor.prescriptions << @prescription
+      redirect_to doctor_view_patient_path(id: @current_doctor.id, patient_id: @patient.id)
+    else
+      render :new_patient_prescription
+    end
   end
 end
