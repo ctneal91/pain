@@ -65,7 +65,7 @@ h4, h3 {
   margin: auto;
 }
 
-.new_dose, .dose_greeting {
+.new_dose, .dose_greeting, .new_patient {
   margin: 5px 0px;
 }
 
@@ -110,4 +110,8 @@ h4, h3 {
 
 .prescriptions_table {
   width: 700px;
+}
+
+.patients_table {
+  width: 400px;
 }
