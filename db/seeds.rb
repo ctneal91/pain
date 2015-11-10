@@ -33,3 +33,28 @@ prescrip1 = Prescription.create! initial_amount_of_pills: 60,
                                  purpose: "To relieve pain",
                                  doses_per_day: 4,
                                  instructions: "Take as needed for excruciating pain."
+
+prescrip2 = Prescription.create! initial_amount_of_pills: 70,
+                                 length_of_prescription: 30,
+                                 max_dose_amount: 4,
+                                 patient_id: me.id,
+                                 doctor_id: d.id,
+                                 drug_name: "Hydrocodone",
+                                 purpose: "To relieve pain",
+                                 doses_per_day: 2,
+                                 instructions: "Take as needed for excruciating pain."
+
+dose1 = Dose.create! amount_of_pills_taken: 3,
+                     pain_scale: 8,
+                     qualitative_description_of_current_pain: "Could no longer focus",
+                     prescription_id: prescrip1.id
+
+dose2 = Dose.create! amount_of_pills_taken: 2,
+                     pain_scale: 5,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+dose3 = Dose.create! amount_of_pills_taken: 2,
+                     pain_scale: 5,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip2.id

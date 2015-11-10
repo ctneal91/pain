@@ -45,4 +45,18 @@
     <p>Initial Amount: <%= @prescription.initial_amount_of_pills %></p>
     <p>Remaining Amount: <%= @prescription.remaining_amount_of_pills %></p>
   </div>
+  <table class="table table-striped">
+    <tr>
+      <th>Amount of Pills Taken</th>
+      <th>Pain Scale</th>
+      <th>Time Taken</th>
+    </tr>
+    <% @prescription.doses.each do |dose| %>
+      <tr>
+        <td><%= dose.amount_of_pills_taken %></td>
+        <td><%= dose.pain_scale %></td>
+        <td><%= dose.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>

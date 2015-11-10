@@ -47,7 +47,6 @@
       <th>First Name</th>
       <th>Last Name</th>
       <th>Prescriptions</th>
-      <th>Last Visit</th>
     </tr>
     <% @patients.each do |patient| %>
       <tr>
@@ -55,7 +54,6 @@
         <td><%= patient.first_name %></td>
         <td><%= patient.last_name %></td>
         <td><%= patient.prescriptions.count %></td>
-        <td>Date</td>
       </tr>
     <% end %>
   </table>
