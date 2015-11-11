@@ -16,6 +16,6 @@ class PrescriptionsController < ApplicationController
       @prescription = @current_doctor.prescriptions.find params[:id]
     end
 
-    @doses = @prescription.doses
+    @doses = @prescription.doses.order("created_at desc")
   end
 end

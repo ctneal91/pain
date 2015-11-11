@@ -40,7 +40,7 @@ class DoctorCanViewPatientsFromRootPageTest < Capybara::Rails::TestCase
                                      instructions: "Take right after eating breakfast and dinner",
                                      doses_per_day: 2
 
-    prescrip3 = Prescription.create! initial_amount_of_pills: 50,
+    prescrip3 = Prescription.create! initial_amount_of_pills: 60,
                                      length_of_prescription: 30,
                                      max_dose_amount: 4,
                                      doctor_id: doc.id,
@@ -49,6 +49,10 @@ class DoctorCanViewPatientsFromRootPageTest < Capybara::Rails::TestCase
                                      purpose: "To prevent heart attacks and stroke",
                                      instructions: "Take right after eating breakfast and dinner",
                                      doses_per_day: 2
+
+    dose1 = Dose.create! amount_of_pills_taken: 2,
+                         pain_scale: 5,
+                         prescription_id: prescrip3.id
     visit root_path
 
     click_link "I am a doctor"
@@ -83,6 +87,14 @@ class DoctorCanViewPatientsFromRootPageTest < Capybara::Rails::TestCase
     click_link "Lipitor"
 
     assert_content page, "Your Lipitor Prescription for Meghan Davenport"
+  end
+
+  test "Doctor can see doses for individual patient" do
+    click_link 'mkd1@rice.edu'
+    click_link 'Lipitor'
+
+    assert_content page, "Pain Scale"
+    assert_content page, "5"
   end
 
 

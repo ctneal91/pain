@@ -55,13 +55,15 @@
       <tr>
         <th>Amount of Pills Taken</th>
         <th>Pain Scale</th>
-        <th>Time Taken</th>
+        <th>Date</th>
+        <th>Time</th>
       </tr>
       <% @doses.each do |dose| %>
         <tr>
           <td><%= dose.amount_of_pills_taken %></td>
           <td><%= dose.pain_scale %></td>
-          <td><%= dose.created_at %></td>
+          <td><%= dose.created_at.strftime('%x') %></td>
+          <td><%= dose.created_at.strftime('%u') %>:<%= dose.created_at.strftime('%M') %> <%=dose.created_at.strftime('%P') %></td>
         </tr>
       <% end %>
     </table>
