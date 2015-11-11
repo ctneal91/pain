@@ -138,6 +138,7 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    puma (2.14.0)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
@@ -251,6 +252,7 @@ DEPENDENCIES
   minitest-rails
   minitest-rails-capybara
   pg
+  puma
   rails (= 4.2.4)
   rails_12factor
   reportable
