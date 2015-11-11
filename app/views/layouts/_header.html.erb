@@ -1,0 +1,34 @@
+<div class="nav_bar">
+  <div class="my">
+    <h3>my</h3>
+  </div>
+  <div class="prescription">
+    <h3>prescription</h3>
+  </div>
+  <div class="pal">
+    <h3>pal</h3>
+  </div>
+  <div class="user_nav_bar">
+    <% if @current_doctor %>
+      <div class="greeting">
+        Hello, Dr. <%= @current_doctor.last_name %>
+      </div>
+      <div class="messages">
+        Messages
+      </div>
+      <div class="sign_out">
+        <%= link_to "Sign Out", doctor_sign_out_path, method: :delete %>
+      </div>
+    <% elsif @current_patient %>
+      <div class="greeting">
+        Hello, <%= @current_patient.full_name %>
+      </div>
+      <div class="messages">
+        Messages
+      </div>
+      <div class="sign_out">
+      <%= link_to "Sign Out", patient_sign_out_path, method: :delete %>
+      </div>
+    <% end %>
+  </div>
+</div>

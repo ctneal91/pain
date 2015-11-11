@@ -1,42 +1,5 @@
-<div class="nav_bar">
-  <div class="my">
-    <h3>my</h3>
-  </div>
-  <div class="prescription">
-    <h3>prescription</h3>
-  </div>
-  <div class="pal">
-    <h3>pal</h3>
-  </div>
-  <div class="user_nav_bar">
-    <% if @current_doctor %>
-      <div class="greeting">
-        Hello, Dr. <%= @current_doctor.last_name %>
-      </div>
-      <div class="messages">
-        Messages
-      </div>
-      <div class="sign_out">
-        <%= link_to "Sign Out", doctor_sign_out_path, method: :delete %>
-      </div>
-    <% elsif @current_patient %>
-      <div class="greeting">
-        Hello, <%= @current_patient.full_name %>
-      </div>
-      <div class="messages">
-        Messages
-      </div>
-      <div class="sign_out">
-      <%= link_to "Sign Out", patient_sign_out_path, method: :delete %>
-      </div>
-    <% end %>
-  </div>
-</div>
-<div class="title_bar">
-  <div class="title_name">
-    <h4>Your <%= @prescription.drug_name %> Prescription</h4>
-  </div>
-</div>
+<%= render 'layouts/header' %>
+<%= render 'layouts/titlebarstart' %>Your <%= @prescription.drug_name %> Prescription<%= render 'layouts/titlebarend' %>
 <div class="page_content">
   <div class="new_dose btn btn-default">
     <%= link_to 'Add New Dose', new_dose_path(prescription_id: @prescription.id) %>
@@ -53,7 +16,7 @@
   <div class = "dose_table">
     <table class="table table-striped">
       <tr>
-        <th>Amount of Pills Taken</th>
+        <th>Amount</th>
         <th>Pain Scale</th>
         <th>Date</th>
         <th>Time</th>
@@ -68,7 +31,10 @@
       <% end %>
     </table>
   </div>
-  <div class="">
-    <%= line_chart Dose.group_by_day(:created_at).sum(:amount_of_pills_taken) %>
+  <div class="chart">
+    <div class= "chart title">
+      <h4>Amount of Pills Taken by Hour</h4>
+    </div>
+    <%= column_chart Dose.group_by_hour_of_day(:created_at).sum(:amount_of_pills_taken), xtitle: "Day", ytitle: "Amount of Pills Taken", min: 0, max: @prescription.max_dose_amount*2, date_format: "short", discrete: true %>
   </div>
 </div>
