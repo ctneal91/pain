@@ -1,27 +1,30 @@
 <%= render 'layouts/header' %>
 <%= render 'layouts/titlebarstart' %>Patient Sign In<%= render 'layouts/titlebarend' %>
 <div class="page_content">
-  <div class="sign_in_greeting">
-    <h4>We are dedicated to helping you regulate your short-term and chronic pain needs.</h4>
+  <div class="sign_in_box">
+    <div class="sign_in_inner_box">
+      <%= form_tag do %>
+
+        <div class="sign_in_form">
+          <%= label_tag :email %>
+          <p></p>
+          <%= text_field_tag :email %>
+        </div>
+
+        <div class="sign_in_form">
+          <%= label_tag :password %>
+          <p></p>
+          <%= password_field_tag :password %>
+        </div>
+
+        <div class="sign_in_form">
+          <%= submit_tag "Sign In" %>
+        </div>
+
+      <% end %>
+      <h5>
+          If you are new, you can <%= link_to 'create an account', patient_sign_up_path %>
+      </h5>
+    </div>
   </div>
-  <h5>
-      If you don't have an account, you can <%= link_to 'create an account', patient_sign_up_path %>
-  </h5>
-  <%= form_tag do %>
-
-    <div class="sign_in_form">
-      <%= label_tag :email %>
-      <%= text_field_tag :email %>
-    </div>
-
-    <div class="sign_in_form">
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
-    </div>
-
-    <div class="sign_in_form">
-      <%= submit_tag "Sign In" %>
-    </div>
-
-  <% end %>
 </div>
