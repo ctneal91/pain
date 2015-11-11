@@ -13,3 +13,6 @@ deploy:
   app: myprescriptionpal
   on:
     repo: ctneal91/pain
+  run:
+    - "rake db:migrate"
+    - "rake cleanup"
