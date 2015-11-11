@@ -66,4 +66,7 @@
       <% end %>
     </table>
   </div>
+  <div class="">
+    <%= line_chart Dose.group_by_day(:created_at).sum(:amount_of_pills_taken) %>
+  </div>
 </div>

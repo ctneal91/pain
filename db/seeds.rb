@@ -58,3 +58,26 @@ dose3 = Dose.create! amount_of_pills_taken: 2,
                      pain_scale: 5,
                      qualitative_description_of_current_pain: "Couldn't sleep",
                      prescription_id: prescrip2.id
+
+dose4 = Dose.create! amount_of_pills_taken: 1,
+                     pain_scale: 3,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+dose5 = Dose.create! amount_of_pills_taken: 2,
+                     pain_scale: 6,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+dose6 = Dose.create! amount_of_pills_taken: 3,
+                     pain_scale: 7,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+
+dose3.update_attribute :created_at, (rand*4).days.ago
+dose2.update_attribute :created_at, (rand*4).days.ago
+dose1.update_attribute :created_at, (rand*4).days.ago
+dose4.update_attribute :created_at, (rand*4).days.ago
+dose5.update_attribute :created_at, (rand*4).days.ago
+dose6.update_attribute :created_at, (rand*4).days.ago
