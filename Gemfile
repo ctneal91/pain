@@ -46,6 +46,10 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 gem 'minitest-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'travis'
