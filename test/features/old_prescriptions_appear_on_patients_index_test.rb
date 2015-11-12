@@ -52,4 +52,11 @@ class OldPrescriptionsAppearOnPatientsIndexTest < Capybara::Rails::TestCase
     refute_content page, "Your Current Prescriptions"
   end
 
+  test "Patient can go to show page for old prescription" do
+    save_and_open_page
+    click_link 'Old Lipitor'
+
+    assert_content page, "Your Old Lipitor Prescription"
+  end
+
 end

@@ -1,9 +1,18 @@
 <%= render 'layouts/header' %>
-<%= render 'layouts/titlebarstart' %>Your <%= @prescription.drug_name %> Prescription<%= render 'layouts/titlebarend' %>
+<%= render 'layouts/titlebarstart' %>
+  Your
+  <% if @prescription.remaining_amount_of_pills == 0 %>
+    Old
+  <% end %>
+  <%= @prescription.drug_name %>
+  Prescription
+<%= render 'layouts/titlebarend' %>
 <div class="page_content">
-  <div class="new_dose btn btn-default">
-    <%= link_to 'Add New Dose', new_dose_path(prescription_id: @prescription.id) %>
-  </div>
+  <% if @prescription.remaining_amount_of_pills > 0 %>
+    <div class="new_dose btn btn-default">
+      <%= link_to 'Add New Dose', new_dose_path(prescription_id: @prescription.id) %>
+    </div>
+  <% end %>
   <% if @prescription.remaining_amount_of_pills <= 10 %>
     <div class="low_warning">
       Warning: You only have <%= @prescription.remaining_amount_of_pills %> pills left.  If you have not already, please make an appointment with Dr. <%= @prescription.doctor.last_name %> if you will need more medication.

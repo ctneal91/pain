@@ -11,7 +11,7 @@
   <div class="user_nav_bar">
     <% if @current_doctor %>
       <div class="greeting">
-        Hello, Dr. <%= @current_doctor.last_name %>
+        Hello, <%= link_to "Dr. #{@current_doctor.last_name}", root_path %>
       </div>
       <div class="messages">
         Messages

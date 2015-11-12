@@ -104,7 +104,7 @@ prescrip2 = Prescription.create! initial_amount_of_pills: 70,
                                  doses_per_day: 2,
                                  instructions: "Take as needed for excruciating pain."
 
-prescrip3 = Prescrip.create! initial_amount_of_pills: 70,
+prescrip3 = Prescription.create! initial_amount_of_pills: 70,
                              length_of_prescription: 30,
                              max_dose_amount: 4,
                              patient_id: elisha.id,
@@ -114,7 +114,7 @@ prescrip3 = Prescrip.create! initial_amount_of_pills: 70,
                              doses_per_day: 2,
                              instructions: "Take as needed for excruciating pain."
 
-prescrip4 = Prescrip.create! initial_amount_of_pills: 70,
+prescrip4 = Prescription.create! initial_amount_of_pills: 70,
                              length_of_prescription: 30,
                              max_dose_amount: 4,
                              patient_id: mercedes.id,
@@ -124,7 +124,7 @@ prescrip4 = Prescrip.create! initial_amount_of_pills: 70,
                              doses_per_day: 2,
                              instructions: "Take as needed for excruciating pain."
 
-prescrip5 = Prescrip.create! initial_amount_of_pills: 40,
+prescrip5 = Prescription.create! initial_amount_of_pills: 40,
                              length_of_prescription: 30,
                              max_dose_amount: 4,
                              patient_id: travis.id,
@@ -134,7 +134,7 @@ prescrip5 = Prescrip.create! initial_amount_of_pills: 40,
                              doses_per_day: 2,
                              instructions: "Take as needed for excruciating pain."
 
-prescrip6 = Prescrip.create!  initial_amount_of_pills: 20,
+prescrip6 = Prescription.create!  initial_amount_of_pills: 20,
                               length_of_prescription: 10,
                               max_dose_amount: 3,
                               patient_id: ladd.id,
@@ -144,9 +144,9 @@ prescrip6 = Prescrip.create!  initial_amount_of_pills: 20,
                               doses_per_day: 2,
                               instructions: "Take as needed for excruciating pain."
 
-prescrip7 = Prescrip.create!  initial_amount_of_pills: 60,
-                              length_of_prescription: 20,
-                              max_dose_amount: 3,
+prescrip7 = Prescription.create!  initial_amount_of_pills: 1,
+                              length_of_prescription: 1,
+                              max_dose_amount: 1,
                               patient_id: ladd.id,
                               doctor_id: d.id,
                               drug_name: "Xyzal",

@@ -1,7 +1,7 @@
 <%= render 'layouts/header' %>
 <%= render 'layouts/titlebarstart' %>Your Prescriptions<%= render 'layouts/titlebarend' %>
 <div class="page_content">
-  <% if @prescriptions.count != 0 %>
+  <% if @current_prescriptions.count > 0 %>
     <div class="prescriptions_index">
       <h4>Your Current Prescriptions</h4>
       <div class="prescriptions_index_table">
@@ -28,7 +28,7 @@
       </div>
     </div>
   <% end %>
-  <% if @old_prescriptions.count != 0 %>
+  <% if @old_prescriptions.any? %>
     <div class="prescriptions_index">
       <h4>Your Old Prescriptions</h4>
       <div class="prescriptions_index_table">
@@ -41,8 +41,8 @@
             <th>Prescription Length (Days)</th>
           </tr>
           <% @old_prescriptions.each do |prescription| %>
-            </tr>
-              <td><%= link_to "#{prescription.drug_name}", prescription_path(id: prescription.id)%></td>
+            <tr>
+              <td><%= link_to "Old #{prescription.drug_name}", prescription_path(id: prescription.id)%></td>
               <td><%= prescription.doctor.full_name %></td>
               <td><%= prescription.initial_amount_of_pills %></td>
               <td><%= prescription.remaining_amount_of_pills %></td>

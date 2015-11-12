@@ -4,14 +4,17 @@ class PrescriptionsController < ApplicationController
   def index
     if @current_patient
       @prescriptions = Prescription.where patient_id: @current_patient.id
-      @old_prescriptions = []
 
-      @prescriptions.each do |prescription|
-        if prescription.remaining_amount_of_pills <= 0
-          @old_prescriptions << prescription
-          @prescriptions.delete(prescription)
-        end
-      end
+      @current_prescriptions = Prescription.where patient_id: @current_patient.id
+      # @old_prescriptions = []
+      # @current_prescriptions.each do |prescription|
+      #   if prescription.remaining_amount_of_pills <= 0
+      #     @old_prescriptions << prescription
+      #   end
+      # end
+
+      @old_prescriptions     = @prescriptions.select {|p| p.remaining_amount_of_pills <= 0}
+      @current_prescriptions = @prescriptions.select {|p| p.remaining_amount_of_pills > 0}
 
     elsif @current_doctor
       redirect_to doctor_view_patients_path(id: @current_doctor.id)
