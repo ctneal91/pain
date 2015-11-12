@@ -4,37 +4,53 @@
   <div class="new_dose btn btn-default">
     <%= link_to 'Add New Dose', new_dose_path(prescription_id: @prescription.id) %>
   </div>
-  <div class="drug_info">
-    <h4>Prescribing Doctor: <%= @prescription.doctor.full_name %></h4>
-    <h5>Purpose: <%= @prescription.purpose %></h5>
-  </div>
-
-  <div class= "drug_amounts">
+  <div class="drug_information">
+    <h4>Drug Information</h4>
+    <p>Prescribing Doctor: <%= @prescription.doctor.full_name %></p>
+    <p>Purpose: <%= @prescription.purpose %></p>
     <p>Initial Amount: <%= @prescription.initial_amount_of_pills %></p>
     <p>Remaining Amount: <%= @prescription.remaining_amount_of_pills %></p>
   </div>
-  <div class = "dose_table">
-    <table class="table table-striped">
-      <tr>
-        <th>Amount</th>
-        <th>Pain Scale</th>
-        <th>Date</th>
-        <th>Time</th>
-      </tr>
-      <% @doses.each do |dose| %>
+  <div class="doses">
+    <h4>Doses</h4>
+    <div class = "dose_table">
+      <table class="table table-striped">
         <tr>
-          <td><%= dose.amount_of_pills_taken %></td>
-          <td><%= dose.pain_scale %></td>
-          <td><%= dose.created_at.strftime('%x') %></td>
-          <td><%= dose.created_at.strftime('%u') %>:<%= dose.created_at.strftime('%M') %> <%=dose.created_at.strftime('%P') %></td>
+          <th>Amount</th>
+          <th>Pain Scale</th>
+          <th>Date</th>
+          <th>Time</th>
         </tr>
-      <% end %>
-    </table>
-  </div>
-  <div class="chart">
-    <div class= "chart title">
-      <h4>Amount of Pills Taken by Hour</h4>
+        <% @doses.each do |dose| %>
+          <tr>
+            <td><%= dose.amount_of_pills_taken %></td>
+            <td><%= dose.pain_scale %></td>
+            <td><%= dose.created_at.strftime('%x') %></td>
+            <td><%= dose.created_at.strftime('%u') %>:<%= dose.created_at.strftime('%M') %> <%=dose.created_at.strftime('%P') %></td>
+          </tr>
+        <% end %>
+      </table>
     </div>
-    <%= column_chart Dose.group_by_hour_of_day(:created_at).sum(:amount_of_pills_taken), xtitle: "Day", ytitle: "Amount of Pills Taken", min: 0, max: @prescription.max_dose_amount*2, date_format: "short", discrete: true %>
+  </div>
+  <div class="Reports">
+    <h4>Reports</h4>
+    <div class="chart">
+      <div class="chart_title">
+        Amount of Pills Taken Per Day
+      </div>
+      <%= line_chart Dose.group_by_day(:created_at, format: "%d %B").sum(:amount_of_pills_taken), discrete: true %>
+    </div>
+    <div class="chart">
+      <div class= "chart_title">
+        <h5>Amount of Pills Taken by Hour of Day</h5>
+      </div>
+      <%= column_chart Dose.group_by_hour_of_day(:created_at).average(:amount_of_pills_taken), xtitle: "Day", ytitle: "Amount of Pills Taken", min: 0, max: @prescription.max_dose_amount*2, date_format: "short", discrete: true %>
+    </div>
+    <div class="chart">
+      <div class="chart_title">
+        <h5>Pain by Hour of Day</h5>
+      </div>
+      <%= column_chart Dose.group_by_hour_of_day(:created_at).average(:pain_scale) %>
+    </div>
   </div>
 </div>
