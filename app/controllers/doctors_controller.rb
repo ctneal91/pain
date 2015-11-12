@@ -58,7 +58,7 @@ class DoctorsController < ApplicationController
   end
 
   def all_patients
-    @patients = Patient.all
+    @patients = Patient.all.order("email asc")
   end
 
   def new_patient_prescription

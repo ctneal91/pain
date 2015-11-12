@@ -1,0 +1,59 @@
+<div class="reports">
+  <h4>Reports</h4>
+  <div class="chart">
+    <div class="chart_title">
+      Amount of Pills Taken Per Day
+    </div>
+    <%= line_chart Dose.where(:prescription_id => @prescription.id).group_by_day(:created_at, format: "%d %B").sum(:amount_of_pills_taken),
+        discrete: true,
+        xtitle: "Day",
+        ytitle: "Total Pills Taken",
+        :colors => ["#eb7260"]
+    %>
+  </div>
+  <div class="chart">
+    <div class="chart_title">
+      Average Pain Scale Per Day
+    </div>
+    <%= line_chart Dose.where(:prescription_id => @prescription.id).group_by_day(:created_at, format: "%d %B").average(:pain_scale),
+        discrete: true,
+        xtitle: "Day",
+        ytitle: "Average Pain Scale",
+        :colors => ["#eb7260"]
+    %>
+  </div>
+  <div class="chart">
+    <div class="chart_title">
+      Pain Scale and Pills Taken
+    </div>
+    <%= bar_chart Dose.where(:prescription_id => @prescription.id).group(:pain_scale).average(:amount_of_pills_taken),
+        xtitle: "Average Amount of Pills Taken",
+        ytitle: "Pain Scale",
+        :colors => ["#eb7260"]
+    %>
+  </div>
+  <div class="chart">
+    <div class= "chart_title">
+      Amount of Pills Taken by Hour of Day
+    </div>
+    <%= column_chart Dose.where(:prescription_id => @prescription.id).group_by_hour_of_day(:created_at, format: "%l %p").average(:amount_of_pills_taken),
+        xtitle: "Hour of Day",
+        ytitle: "Amount of Pills Taken",
+        :colors => ["#eb7260"],
+        min: 0,
+        max: @prescription.max_dose_amount*2,
+        date_format: "short",
+        discrete: true
+    %>
+  </div>
+  <div class="chart">
+    <div class="chart_title">
+      Average Pain by Hour of Day
+    </div>
+    <%= column_chart Dose.where(:prescription_id => @prescription.id).group_by_hour_of_day(:created_at, format: "%l %p").average(:pain_scale),
+        xtitle: "Hour of the Day",
+        ytitle: "Average Pain",
+        :colors => ["#eb7260"]
+    %>
+  </div>
+</div>

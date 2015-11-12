@@ -122,21 +122,35 @@ h4, h3, h2 {
   width: 400px;
 }
 
-.sign_in_form input, .sign_in_form {
+.sign_in_form input, .sign_in_form, {
   width: 200px;
   border-radius: 5px;
 }
 
-.sign_in_box {
+.sign_in_box, .prescription_form {
   margin: 50px auto;
   width: 486px;
-  border: 5px solid #29aba4;
+  border: 3px solid #29aba4;
   padding: auto auto;
   height: 300px;
   border-radius: 10px;
   background-color: #e9e0d6;
-  h5{
+  h5 {
     margin: 10px 100px;
+  }
+  button {
+    background-color: #29aba4;
+    color: #e9e0d6;
+    margin: 0px auto;
+    margin-left: 38%;
+  }
+}
+
+.prescription_form {
+  height: 500px;
+  width: 809px;
+  form {
+    margin: auto auto;
   }
 }
 
@@ -205,4 +219,13 @@ form {
   font-size: 18px;
   margin: 1px 0px;
   padding: 1px 5px;
+}
+
+.new_prescription_form {
+  width: 500px;
+  margin: 20px auto;
+}
+
+.top_form {
+  margin-top: 40px;
 }

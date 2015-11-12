@@ -1,26 +1,23 @@
 <%= render 'layouts/header' %>
 <%= render 'layouts/titlebarstart' %>Add New Prescription for <%= @patient.full_name %><%= render 'layouts/titlebarend' %>
 <div class="page_content">
-  <div class="prescription_greeting">
-    <h4>Please enter in your prescription information here</h4>
-  </div>
   <div class="prescription_form">
-    <%= simple_form_for @prescription do |f| %>
-      <%= f.input :drug_name, label: "Drug Name" %>
+      <%= simple_form_for @prescription do |f| %>
+        <%= f.input :drug_name, label: false, placeholder: "Drug Name", input_html: {class: "new_prescription_form top_form"} %>
 
-      <%= f.input :purpose, label: "Purpose" %>
+        <%= f.input :purpose, label: false, placeholder: "Purpose", input_html: {class: "new_prescription_form"} %>
 
-      <%= f.input :instructions, label: "Instructions" %>
+        <%= f.input :instructions, label: false, placeholder: "Instructions", input_html: {class: "new_prescription_form"} %>
 
-      <%= f.input :doses_per_day, label: "Doses Per Day" %>
+        <%= f.input :doses_per_day, label: false, placeholder: "Doses Per Day", input_html: {class: "new_prescription_form"} %>
 
-      <%= f.input :max_dose_amount, label: "Max Dose Amount" %>
+        <%= f.input :max_dose_amount, label: false, placeholder: "Max Dose Amount", input_html: {class: "new_prescription_form"} %>
 
-      <%= f.input :initial_amount_of_pills, label: "Amount of Pills" %>
+        <%= f.input :initial_amount_of_pills, label: false, placeholder: "Amount of Pills", input_html: {class: "new_prescription_form"} %>
 
-      <%= f.input :length_of_prescription, label: "Length of Prescription (Days)" %>
+        <%= f.input :length_of_prescription, label: false, placeholder: "Length of Prescription (Days)", input_html: {class: "new_prescription_form"} %>
 
-      <%= f.submit "Create New Prescription" %>
-    <% end %>
+        <button class="btn btn-rounded">Create New Prescription</button>
+      <% end %>
   </div>
 </div>

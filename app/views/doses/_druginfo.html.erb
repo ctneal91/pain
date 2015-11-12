@@ -1,0 +1,9 @@
+<div class="drug_information">
+  <h4>Drug Information</h4>
+  <% if @current_doctor.blank? %>
+    <p><b>Prescribing Doctor:</b> <%= @prescription.doctor.full_name %></p>
+  <% end %>
+  <p><b>Purpose:</b> <%= @prescription.purpose %></p>
+  <p><b>Initial Amount:</b> <%= @prescription.initial_amount_of_pills %></p>
+  <p><b>Remaining Amount:</b> <%= @prescription.remaining_amount_of_pills %></p>
+</div>

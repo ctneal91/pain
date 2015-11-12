@@ -18,6 +18,66 @@ me = Patient.create! first_name: "Christian",
                      password: "12345678",
                      insurer: "Insurance"
 
+c = Patient.create! first_name: "Cassie",
+                    last_name: "DeWitt",
+                    email: "cdewitt@example.com",
+                    password: "12345678",
+                    insurer: "Humana"
+
+e = Patient.create! first_name: "Eddie",
+                    last_name: "Barnes",
+                    email: "eddie@aol.com",
+                    password: "12345678",
+                    insurer: "BCBS"
+
+l = Patient.create! first_name: "Pamela",
+                    last_name: "Ison",
+                    email: "pamela@ison.com",
+                    password: "12345678",
+                    insurer: "Aegion"
+
+mom = Patient.create! first_name: "Kathy",
+                      last_name: "Holton",
+                      email: "none@email.com",
+                      password: "12345678",
+                      insurer: "BCBS"
+
+gramps = Patient.create! first_name: "Bobby",
+                         last_name: "Ted",
+                         email: "none@aol.com",
+                         password: "12345678",
+                         insurer: "BCBS"
+
+ladd = Patient.create! first_name: "David",
+                       last_name: "Peny",
+                       email: "ladd@gmail.com",
+                       password: "12345678",
+                       insurer: "BCBS"
+
+mike = Patient.create! first_name: "Mike",
+                       last_name: "Penny",
+                       email: "mike@cafe.com",
+                       password: "12345678",
+                       insurer: "Obamacare"
+
+elisha = Patient.create! first_name: "Elisha",
+                         last_name: "Penny",
+                         email: "eli@home.com",
+                         password: "12345678",
+                         insurer: "TCH"
+
+mercedes = Patient.create! first_name: "Mercedes",
+                           last_name: "Gray",
+                           email: "nicole@gray.com",
+                           password: "12345678",
+                           insurer: "TCH"
+
+travis = Patient.create! first_name: "Travis",
+                         last_name: "Ci",
+                         email: "travis@ci.com",
+                         password: "12345678",
+                         insurer: "Help"
+
 d = Doctor.create! first_name: "Jane",
                    last_name: "Doe",
                    specialty: "Internal Medicine",
@@ -73,7 +133,6 @@ dose6 = Dose.create! amount_of_pills_taken: 3,
                      pain_scale: 7,
                      qualitative_description_of_current_pain: "Couldn't sleep",
                      prescription_id: prescrip1.id
-
 
 dose3.update_attribute :created_at, (rand*4).days.ago
 dose2.update_attribute :created_at, (rand*4).days.ago
