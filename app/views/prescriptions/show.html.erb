@@ -6,10 +6,10 @@
   </div>
   <div class="drug_information">
     <h4>Drug Information</h4>
-    <p>Prescribing Doctor: <%= @prescription.doctor.full_name %></p>
-    <p>Purpose: <%= @prescription.purpose %></p>
-    <p>Initial Amount: <%= @prescription.initial_amount_of_pills %></p>
-    <p>Remaining Amount: <%= @prescription.remaining_amount_of_pills %></p>
+    <p><b>Prescribing Doctor:</b> <%= @prescription.doctor.full_name %></p>
+    <p><b>Purpose:</b> <%= @prescription.purpose %></p>
+    <p><b>Initial Amount:</b> <%= @prescription.initial_amount_of_pills %></p>
+    <p><b>Remaining Amount:</b> <%= @prescription.remaining_amount_of_pills %></p>
   </div>
   <div class="doses">
     <h4>Doses</h4>
@@ -32,7 +32,7 @@
       </table>
     </div>
   </div>
-  <div class="Reports">
+  <div class="reports">
     <h4>Reports</h4>
     <div class="chart">
       <div class="chart_title">
@@ -41,16 +41,29 @@
       <%= line_chart Dose.group_by_day(:created_at, format: "%d %B").sum(:amount_of_pills_taken), discrete: true %>
     </div>
     <div class="chart">
+      <div class="chart_title">
+        Average Pain Scale Per Day
+      </div>
+      <%= line_chart Dose.group_by_day(:created_at, format: "%d %B").average(:pain_scale), discrete: true %>
+    </div>
+    <div class="chart">
+      <div class="chart_title">
+        Pain Scale and Pills Taken
+      </div>
+      <%= bar_chart Dose.group(:pain_scale).average(:amount_of_pills_taken) %>
+    </div>
+    <div class="chart">
       <div class= "chart_title">
-        <h5>Amount of Pills Taken by Hour of Day</h5>
+        Amount of Pills Taken by Hour of Day
       </div>
       <%= column_chart Dose.group_by_hour_of_day(:created_at).average(:amount_of_pills_taken), xtitle: "Day", ytitle: "Amount of Pills Taken", min: 0, max: @prescription.max_dose_amount*2, date_format: "short", discrete: true %>
     </div>
     <div class="chart">
       <div class="chart_title">
-        <h5>Pain by Hour of Day</h5>
+        Average Pain by Hour of Day
       </div>
       <%= column_chart Dose.group_by_hour_of_day(:created_at).average(:pain_scale) %>
     </div>
+
   </div>
 </div>

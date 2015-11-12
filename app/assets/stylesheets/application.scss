@@ -74,6 +74,9 @@ h4, h3, h2 {
 
 .new_dose, .dose_greeting, .new_patient {
   margin: 5px 0px;
+  background-color: #e9e0d6;
+  color: #29aba4;
+  text-decoration: bold;
 }
 
 .drug_amounts p {
@@ -163,4 +166,32 @@ form {
 .sign_in_inner_box {
   height: 250px;
   margin: 50px auto;
+}
+
+.drug_information, .doses, .reports {
+  h4 {
+    color: #29aba4;
+    margin: 5px 0px;
+    width: 1100px;
+    border-bottom: 2px solid lighten(#344256, 20%);
+    padding-bottom: 2px;
+    font-size: 21px;
+  }
+  p {
+    margin: 1px 0px;
+  }
+  p, .chart_title {
+    color: #344256;
+  }
+  margin: 10px 0px;
+  .chart_title {
+    font-size: 16px;
+    margin: 3px 0px;
+  }
+}
+
+.chart {
+  padding-bottom: 2px;
+  border-bottom: 1px solid lighten(#344256, 40%);
+  margin: 10px 0px;
 }

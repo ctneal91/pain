@@ -28,11 +28,11 @@
       </table>
     </div>
   </div>
-  <div class="Reports">
+  <div class="reports">
     <h4>Reports</h4>
     <div class="chart">
       <div class="chart_title">
-        Amount of Pills Taken Per Day
+        <h5>Amount of Pills Taken Per Day<h5>
       </div>
       <%= line_chart Dose.group_by_day(:created_at, format: "%d %B").sum(:amount_of_pills_taken), discrete: true %>
     </div>
