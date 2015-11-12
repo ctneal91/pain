@@ -1,22 +1,29 @@
 <%= render 'layouts/header' %>
 <%= render 'layouts/titlebarstart' %>Your Prescriptions<%= render 'layouts/titlebarend' %>
 <div class="page_content">
-  <table class="prescriptions_table table table-striped">
-    <tr>
-      <th>Drug Name</th>
-      <th>Doctor</th>
-      <th>Initial Amount</th>
-      <th>Pills Remaining</th>
-      <th>Prescription Length (Days)</th>
-    </tr>
-    <% @prescriptions.each do |prescription| %>
-      </tr>
-        <td><%= link_to "#{prescription.drug_name}", prescription_path(id: prescription.id)%></td>
-        <td><%= prescription.doctor.full_name %></td>
-        <td><%= prescription.initial_amount_of_pills %></td>
-        <td><%= prescription.remaining_amount_of_pills %></td>
-        <td><%= prescription.length_of_prescription %></td>
-      </tr>
-    <% end %>
-  </table>
+  <div class="prescriptions_index">
+    <h4>Your Current Prescriptions</h4>
+    <div class="prescriptions_index_table">
+      <table class="prescriptions_table table table-striped">
+        <tr>
+          <th>Drug Name</th>
+          <th>Doctor</th>
+          <th>Initial Amount</th>
+          <th>Pills Remaining</th>
+          <th>Prescription Length (Days)</th>
+        </tr>
+        <% @prescriptions.each do |prescription| %>
+          <% if prescription.remaining_amount_of_pills > 0 %>
+            </tr>
+              <td><%= link_to "#{prescription.drug_name}", prescription_path(id: prescription.id)%></td>
+              <td><%= prescription.doctor.full_name %></td>
+              <td><%= prescription.initial_amount_of_pills %></td>
+              <td><%= prescription.remaining_amount_of_pills %></td>
+              <td><%= prescription.length_of_prescription %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>

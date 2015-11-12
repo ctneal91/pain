@@ -77,7 +77,9 @@ h4, h3, h2 {
   background-color: #e9e0d6;
   color: #29aba4;
   text-decoration: bold;
+  margin-top: 10px;
 }
+
 
 .drug_amounts p {
   margin: 5px 0px;
@@ -85,6 +87,18 @@ h4, h3, h2 {
 
 .dose_form {
   width: 200px;
+}
+
+.add_dose_form {
+  button {
+    background-color: #29aba4;
+    color: #e9e0d6;
+    margin: 0px auto;
+  }
+  form {
+    width: 200px;
+    background-color: lighten(#e9e0d6, 10%);
+  }
 }
 
 .choices {
@@ -95,6 +109,7 @@ h4, h3, h2 {
 
 .choice {
   margin-top: 20px;
+  background-color: #e9e0d6;
 }
 
 .create_container {
@@ -182,7 +197,7 @@ form {
   margin: 50px auto;
 }
 
-.drug_information, .doses, .reports {
+.drug_information, .doses, .reports, .prescriptions_index{
   h4 {
     color: #29aba4;
     margin: 5px 0px;

@@ -104,6 +104,56 @@ prescrip2 = Prescription.create! initial_amount_of_pills: 70,
                                  doses_per_day: 2,
                                  instructions: "Take as needed for excruciating pain."
 
+prescrip3 = Prescrip.create! initial_amount_of_pills: 70,
+                             length_of_prescription: 30,
+                             max_dose_amount: 4,
+                             patient_id: elisha.id,
+                             doctor_id: d.id,
+                             drug_name: "Hydrocodone",
+                             purpose: "To relieve pain",
+                             doses_per_day: 2,
+                             instructions: "Take as needed for excruciating pain."
+
+prescrip4 = Prescrip.create! initial_amount_of_pills: 70,
+                             length_of_prescription: 30,
+                             max_dose_amount: 4,
+                             patient_id: mercedes.id,
+                             doctor_id: d.id,
+                             drug_name: "Oxycotin",
+                             purpose: "To relieve pain",
+                             doses_per_day: 2,
+                             instructions: "Take as needed for excruciating pain."
+
+prescrip5 = Prescrip.create! initial_amount_of_pills: 40,
+                             length_of_prescription: 30,
+                             max_dose_amount: 4,
+                             patient_id: travis.id,
+                             doctor_id: d.id,
+                             drug_name: "Tramadol",
+                             purpose: "To relieve pain",
+                             doses_per_day: 2,
+                             instructions: "Take as needed for excruciating pain."
+
+prescrip6 = Prescrip.create!  initial_amount_of_pills: 20,
+                              length_of_prescription: 10,
+                              max_dose_amount: 3,
+                              patient_id: ladd.id,
+                              doctor_id: d.id,
+                              drug_name: "Xyzal",
+                              purpose: "To relieve pain",
+                              doses_per_day: 2,
+                              instructions: "Take as needed for excruciating pain."
+
+prescrip7 = Prescrip.create!  initial_amount_of_pills: 60,
+                              length_of_prescription: 20,
+                              max_dose_amount: 3,
+                              patient_id: ladd.id,
+                              doctor_id: d.id,
+                              drug_name: "Xyzal",
+                              purpose: "To relieve pain",
+                              doses_per_day: 2,
+                              instructions: "Take as needed for excruciating pain."
+
 dose1 = Dose.create! amount_of_pills_taken: 3,
                      pain_scale: 8,
                      qualitative_description_of_current_pain: "Could no longer focus",

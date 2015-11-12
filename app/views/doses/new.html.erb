@@ -1,16 +1,16 @@
 <%= render 'layouts/header' %>
 <%= render 'layouts/titlebarstart' %>New Dose for Your <%= @prescription.drug_name %> Prescription<%= render 'layouts/titlebarend' %>
 <div class="page_content">
-  <div class="dose_greeting">
+  <div class="add_dose_greeting">
     <h4>Please enter in your dose information here</h4>
   </div>
-  <div class="dose_form">
+  <div class="add_dose_form">
     <%= simple_form_for @dose do |d| %>
       <%= d.input :amount_of_pills_taken, collection: 1..@prescription.max_dose_amount %>
 
       <%= d.input :pain_scale, collection: 1..10 %>
 
-      <%= d.submit "Add Dose" %>
+      <button class="btn btn-rounded">Add Dose</button>
     <% end %>
   </div>
 </div>
