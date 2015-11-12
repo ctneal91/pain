@@ -4,6 +4,11 @@
   <div class="new_dose btn btn-default">
     <%= link_to 'Add New Dose', new_dose_path(prescription_id: @prescription.id) %>
   </div>
+  <% if @prescription.remaining_amount_of_pills <= 10 %>
+    <div class="low_warning">
+      Warning: You only have <%= @prescription.remaining_amount_of_pills %> pills left.  If you have not already, please make an appointment with Dr. <%= @prescription.doctor.last_name %> if you will need more medication.
+    </div>
+  <% end %>
   <div class="drug_information">
     <h4>Drug Information</h4>
     <p><b>Prescribing Doctor:</b> <%= @prescription.doctor.full_name %></p>
@@ -38,25 +43,41 @@
       <div class="chart_title">
         Amount of Pills Taken Per Day
       </div>
-      <%= line_chart Dose.group_by_day(:created_at, format: "%d %B").sum(:amount_of_pills_taken), discrete: true %>
+      <%= line_chart Dose.group_by_day(:created_at, format: "%d %B").sum(:amount_of_pills_taken),
+          discrete: true,
+          :colors => ["#eb7260"]
+      %>
     </div>
     <div class="chart">
       <div class="chart_title">
         Average Pain Scale Per Day
       </div>
-      <%= line_chart Dose.group_by_day(:created_at, format: "%d %B").average(:pain_scale), discrete: true %>
+      <%= line_chart Dose.group_by_day(:created_at, format: "%d %B").average(:pain_scale),
+          discrete: true,
+          :colors => ["#eb7260"]
+      %>
     </div>
     <div class="chart">
       <div class="chart_title">
         Pain Scale and Pills Taken
       </div>
-      <%= bar_chart Dose.group(:pain_scale).average(:amount_of_pills_taken) %>
+      <%= bar_chart Dose.group(:pain_scale).average(:amount_of_pills_taken),
+          :colors => ["#eb7260"]
+      %>
     </div>
     <div class="chart">
       <div class= "chart_title">
         Amount of Pills Taken by Hour of Day
       </div>
-      <%= column_chart Dose.group_by_hour_of_day(:created_at).average(:amount_of_pills_taken), xtitle: "Day", ytitle: "Amount of Pills Taken", min: 0, max: @prescription.max_dose_amount*2, date_format: "short", discrete: true %>
+      <%= column_chart Dose.group_by_hour_of_day(:created_at).average(:amount_of_pills_taken),
+          xtitle: "Day",
+          ytitle: "Amount of Pills Taken",
+          :colors => ["#eb7260"],
+          min: 0,
+          max: @prescription.max_dose_amount*2,
+          date_format: "short",
+          discrete: true
+      %>
     </div>
     <div class="chart">
       <div class="chart_title">

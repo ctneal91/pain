@@ -194,4 +194,15 @@ form {
   padding-bottom: 2px;
   border-bottom: 1px solid lighten(#344256, 40%);
   margin: 10px 0px;
+  script {
+    background-color: lighten(#e9e0d6, 10%);
+  }
+}
+
+.low_warning {
+  background-color: lighten(red, 30%);
+  color: red;
+  font-size: 18px;
+  margin: 1px 0px;
+  padding: 1px 5px;
 }
