@@ -84,7 +84,7 @@ d = Doctor.create! first_name: "Jane",
                    email: "jane@doe.com",
                    password: "12345678"
 
-prescrip1 = Prescription.create! initial_amount_of_pills: 60,
+prescrip1 = Prescription.create! initial_amount_of_pills: 70,
                                  length_of_prescription: 30,
                                  max_dose_amount: 4,
                                  patient_id: j.id,
@@ -160,33 +160,193 @@ dose1 = Dose.create! amount_of_pills_taken: 3,
                      prescription_id: prescrip1.id
 
 dose2 = Dose.create! amount_of_pills_taken: 2,
-                     pain_scale: 5,
-                     qualitative_description_of_current_pain: "Couldn't sleep",
-                     prescription_id: prescrip1.id
-
-dose3 = Dose.create! amount_of_pills_taken: 2,
-                     pain_scale: 5,
-                     qualitative_description_of_current_pain: "Couldn't sleep",
-                     prescription_id: prescrip2.id
-
-dose4 = Dose.create! amount_of_pills_taken: 1,
-                     pain_scale: 3,
-                     qualitative_description_of_current_pain: "Couldn't sleep",
-                     prescription_id: prescrip1.id
-
-dose5 = Dose.create! amount_of_pills_taken: 2,
-                     pain_scale: 6,
-                     qualitative_description_of_current_pain: "Couldn't sleep",
-                     prescription_id: prescrip1.id
-
-dose6 = Dose.create! amount_of_pills_taken: 3,
                      pain_scale: 7,
                      qualitative_description_of_current_pain: "Couldn't sleep",
                      prescription_id: prescrip1.id
 
-dose3.update_attribute :created_at, (rand*4).days.ago
-dose2.update_attribute :created_at, (rand*4).days.ago
-dose1.update_attribute :created_at, (rand*4).days.ago
-dose4.update_attribute :created_at, (rand*4).days.ago
-dose5.update_attribute :created_at, (rand*4).days.ago
-dose6.update_attribute :created_at, (rand*4).days.ago
+dose3 = Dose.create! amount_of_pills_taken: 2,
+                     pain_scale: 8,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+dose4 = Dose.create! amount_of_pills_taken: 2,
+                     pain_scale: 9,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+dose5 = Dose.create! amount_of_pills_taken: 2,
+                     pain_scale: 7,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+dose6 = Dose.create! amount_of_pills_taken: 2,
+                     pain_scale: 7,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+dose7 = Dose.create! amount_of_pills_taken: 2,
+                     pain_scale: 8,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+dose8 = Dose.create! amount_of_pills_taken: 2,
+                     pain_scale: 6,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+dose9 = Dose.create! amount_of_pills_taken: 2,
+                     pain_scale: 8,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+dose9 = Dose.create! amount_of_pills_taken: 2,
+                     pain_scale: 7,
+                     qualitative_description_of_current_pain: "Couldn't sleep",
+                     prescription_id: prescrip1.id
+
+dose10 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 6,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose11 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 5,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose12 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 6,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose13 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 7,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose14 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 5,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose15 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 8,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose16 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 5,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose16 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 4,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose17 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 6,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose18 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 4,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose19 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 6,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose20 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 7,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose21 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 5,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose22 = Dose.create! amount_of_pills_taken: 1,
+                      pain_scale: 3,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose23 = Dose.create! amount_of_pills_taken: 1,
+                      pain_scale: 4,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose24 = Dose.create! amount_of_pills_taken: 1,
+                      pain_scale: 3,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose25 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 5,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose26 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 7,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose27 = Dose.create! amount_of_pills_taken: 1,
+                      pain_scale: 5,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose28 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 8,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose29 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 7,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose30 = Dose.create! amount_of_pills_taken: 2,
+                      pain_scale: 5,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose31 = Dose.create! amount_of_pills_taken: 1,
+                      pain_scale: 2,
+                      qualitative_description_of_current_pain: "Couldn't sleep",
+                      prescription_id: prescrip1.id
+
+dose3.update_attribute :created_at, 10.days.ago
+dose2.update_attribute :created_at, 10.days.ago
+dose1.update_attribute :created_at, 10.days.ago
+dose4.update_attribute :created_at, 10.days.ago
+dose5.update_attribute :created_at, 9.days.ago
+dose6.update_attribute :created_at, 9.days.ago
+dose7.update_attribute :created_at, 9.days.ago
+dose8.update_attribute :created_at, 9.days.ago
+dose9.update_attribute :created_at, 8.days.ago
+dose10.update_attribute :created_at, 8.days.ago
+dose11.update_attribute :created_at, 8.days.ago
+dose12.update_attribute :created_at, 7.days.ago
+dose13.update_attribute :created_at, 7.days.ago
+dose14.update_attribute :created_at, 7.days.ago
+dose15.update_attribute :created_at, 6.days.ago
+dose16.update_attribute :created_at, 6.days.ago
+dose17.update_attribute :created_at, 6.days.ago
+dose18.update_attribute :created_at, 5.days.ago
+dose19.update_attribute :created_at, 5.days.ago
+dose20.update_attribute :created_at, 4.days.ago
+dose21.update_attribute :created_at, 4.days.ago
+dose22.update_attribute :created_at, 4.days.ago
+dose23.update_attribute :created_at, 3.days.ago
+dose24.update_attribute :created_at, 3.days.ago
+dose25.update_attribute :created_at, 3.days.ago
+dose26.update_attribute :created_at, 2.days.ago
+dose27.update_attribute :created_at, 2.days.ago
+dose28.update_attribute :created_at, 2.days.ago
+dose29.update_attribute :created_at, 2.days.ago
+dose30.update_attribute :created_at, 1.days.ago
+dose31.update_attribute :created_at, 1.days.ago

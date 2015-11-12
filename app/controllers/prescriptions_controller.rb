@@ -5,14 +5,6 @@ class PrescriptionsController < ApplicationController
     if @current_patient
       @prescriptions = Prescription.where patient_id: @current_patient.id
 
-      @current_prescriptions = Prescription.where patient_id: @current_patient.id
-      # @old_prescriptions = []
-      # @current_prescriptions.each do |prescription|
-      #   if prescription.remaining_amount_of_pills <= 0
-      #     @old_prescriptions << prescription
-      #   end
-      # end
-
       @old_prescriptions     = @prescriptions.select {|p| p.remaining_amount_of_pills <= 0}
       @current_prescriptions = @prescriptions.select {|p| p.remaining_amount_of_pills > 0}
 
