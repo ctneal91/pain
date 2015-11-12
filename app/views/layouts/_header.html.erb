@@ -21,7 +21,7 @@
       </div>
     <% elsif @current_patient %>
       <div class="greeting">
-        Hello, <%= @current_patient.first_name %>
+        Hello, <%= link_to "#{@current_patient.first_name}", root_path %>
       </div>
       <div class="messages">
         Messages
