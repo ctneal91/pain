@@ -72,12 +72,16 @@ h4, h3, h2 {
   margin: auto;
 }
 
-.new_dose, .dose_greeting, .new_patient {
+.new_dose, .dose_greeting, .new_patient, .new_prescription {
   margin: 5px 0px;
   background-color: #e9e0d6;
   color: #29aba4;
   text-decoration: bold;
   margin-top: 10px;
+}
+
+.new_prescription, .new_patient {
+  margin-bottom: 10px;
 }
 
 
